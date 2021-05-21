@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+  <link rel="stylesheet" href="css/my_unit.css" type="text/css">
+  <link rel="stylesheet" href="css/menu.css" type="text/css">
+
+<script>
+  var uk = "dc7dcfc49147c798d18059f6b45ffc97";
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/my_unit.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script type="text/javascript" charset="utf-8" src="js/edge_animation/edge.5.0.1.min.js"></script>
+<style>
+  .edgeLoad-present_animation { visibility:hidden; }
+</style>
+<script>
+  AdobeEdge.loadComposition('js/edge_animation/contest_animation', 'contest_animation', {
+    scaleToFit: "width",
+    centerStage: "none",
+    minW: "0",
+    maxW: "undefined",
+    width: "500px",
+    height: "350px"
+  }, {dom: [ ]}, {dom: [ ]});
+
+  AdobeEdge.loadComposition('js/edge_animation/present_animation', 'present_animation', {
+    scaleToFit: "width",
+    centerStage: "none",
+    minW: "0",
+    maxW: "undefined",
+    width: "500px",
+    height: "350px"
+  }, {dom: [ ]}, {dom: [ ]});
+</script>
+</head>
+<body class="">
+
+<div id="main_wrapper" class="my_unit">
+
+  
+  <div id="head_wrapper">
+    <div id="m_page_title"></div>
+    <div id="p_header_left"></div>
+    <div id="p_header_center"></div>
+    <div id="p_header_right"></div>
+  </div>
+
+      <div id="menu_wrapper">
+        <div id="menu_main" class="sprite-menu_main"></div>
+        <div id="menu_base" class="">
+            <div id="menu_list" class="">
+                <ul id="menu_list_col1">
+                    <li id="menu_info" class="sprite-menu_info"><a href="information"></a></li>
+                    <li id="menu_deck_editor" class="sprite-menu_deck_editor"><a href="deck_editor"></a></li>
+                    <li id="menu_deck_list" class="sprite-menu_deck_list"><a href="deck_list"></a></li>
+                    <li id="menu_card_list" class="sprite-menu_card_list"><a href="card_list"></a></li>
+                </ul>
+                <ul id="menu_list_col2">
+                    <li id="menu_player_file" class="sprite-menu_player_file"><a href="player_file"></a></li>
+                    <li id="menu_bulletin_board" class="sprite-menu_bulletin_board"><a href="bulletin_board"></a></li>
+                    <li id="menu_my_unit" class="sprite-menu_my_unit"><a href="my_unit"></a></li>
+                    <li id="menu_friend" class="sprite-menu_friend"><a href="friend"></a></li>
+                </ul>
+                <ul id="menu_list_col3">
+                    <li id="menu_ranking" class="sprite-menu_ranking"><a href="ranking"></a></li>
+                    <li id="menu_code" class="sprite-menu_code"><a href="code"></a></li>
+                    <li id="menu_help" class="sprite-menu_help"><a href="help?ref=my_unit"></a></li>
+                    <li id="menu_setting" class="sprite-menu_setting"><a href="setting"></a></li>
+                    <li id="menu_logout" class="sprite-menu_logout"><a href="login"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <div id="m_sub_menu">
+    
+  </div>
+
+  
+  <div id="content_wrapper">
+
+    <div id="unit_main_area" class="clearfix">
+      <div id="unit_bg" class="unit_bg_0"></div>
+      <div id="unit_friendly_container">
+        <div id="unit_friendly_bar"></div>
+      </div>
+      <div id="unit_main_bg"></div>
+      <div id="unit_touch_area">
+        <div id="unit_lvup"></div>
+        <div id="unit_image" class=""></div>
+        <div id="unit_level_effect">
+          
+        </div>
+        <div id="unit_touch" class="touch_icon"><span id="touch_count"></span></div>
+        <div id="my_unit_present" class="square_present display_none"></div>
+      </div>
+      <div id="unit_mood"><span class=""></span></div>
+      <div id="unit_comment">
+        <span id="unit_comment_all">
+          <span id="unit_comment_text"></span>
+          <span id="unit_comment_info" class="display_none"></span>
+        </span>
+      </div>
+      <div id="unit_main_bt" class="bt_unit_main selected"></div>
+      <div id="unit_name"></div>
+      <dl id="unit_main_data">
+        <dd id="unit_friendly_level"></dd>
+        <dd id="unit_popularity_point"></dd>
+        <dd id="unit_rank"></dd>
+        <dd id="unit_best_rank"></dd>
+        <dd id="unit_flavor_text"></dd>
+        <dd id="unit_ranking_medal_box" class="clearfix">
+          
+        </dd>
+      </dl>
+      <div id="paging_prev_bt" class="bt_paging_prev disable"></div>
+      <div id="paging_next_bt" class="bt_paging_next disable"></div>
+    </div>
+
+    <div id="unit_play_area" class="clearfix">
+      <div class="unit_play_plate">
+        <div id="unit_mission_point"><span></span></div>
+        <div id="unit_play_present">
+          <div class="unit_play_text">
+            マイユニットに<br>
+            プレゼントを贈りましょう！
+          </div>
+          <div id="unit_present_bt" class="bt_unit_present"></div>
+        </div>
+        <div id="unit_play_buy">
+          <div class="unit_play_text">
+            育成するマイユニットを<br>
+            追加します！
+          </div>
+          <div id="unit_buy_bt" class="bt_unit_buy"></div>
+        </div>
+        <div id="unit_play_contest">
+          <div class="unit_play_text">
+            コンテストに参加して<br>
+            人気ポイントを獲得しましょう！
+          </div>
+          <div id="unit_contest_bt" class="bt_unit_contest">
+            <div id="contest_mp"><span></span>MP</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="ranking_banner">
+        <a href="my_unit_ranking">
+          <div id="ranking_text">第<span id="ranking_number"></span>回</div>
+          <div id="ranking_period"></div>
+          <div id="ranking_image"></div>
+        </a>
+      </div>
+    </div>
+
+
+    
+    <div id="m_copyright">
+      <p>©SEGA</p>
+    </div>
+
+  </div>
+
+  
+  <div id="event_popup_wrapper" class="display_none">
+    <div class="popup_plate">
+    
+      <div id="first_action_container" class="action_container display_none">
+        <h1><span class="title_text"></span></h1>
+        <div id="first_p1" class="">
+          <div class="action_lead_text">
+          ●「マイユニット」ページとは・・・<br>
+          マイユニットというぷちキャラを育成し、仲良くなることができるミニゲームです。<br>
+          タッチやプレゼントでコミュニケーションをとると、マイユニットと仲良くなることができます。<br>
+          また、「コンテスト」で獲得した人気ポイントを競う「人気ポイントランキング」に参加できます。<br>
+          上位を目指してがんばりましょう！
+          </div>
+          <div id="first_info_image" class="clearfix">
+            <div id="first_image"></div>
+          </div>
+        </div>
+        <div id="first_p2" class="display_none">
+          <div class="action_lead_text">
+          最初に仲良くなるマイユニットを選択してください。
+          </div>
+          <div id="first_select_area" class="action_select_area select_unit">
+            <ul class="clearfix">
+              
+            </ul>
+          </div>
+          <div class="action_foot_text">
+            <ul class="text_list">
+              <li>マイユニットごとに、ステータスなどの差は一切ありません。</li>
+              <li>2体目以降、他のマイユニットと仲良くなりたい場合、MPを消費して追加することができます。</li>
+            </ul>
+          </div>
+        </div>
+        <div id="first_p3" class="display_none">
+          <div id="" class="action_result_unit">
+            <div id="first_unit_image_p3" class=""></div>
+          </div>
+          <div class="action_send_message">
+            <div>
+              <span class="send_head">選択したマイユニット</span>
+              <span id="first_unit" class="send_white">まーや</span>
+            </div>
+          </div>
+          <div class="action_foot_text">
+          このマイユニットを選択して、ミニゲームを開始しますか？
+          </div>
+        </div>
+        <div id="first_p4" class="display_none">
+          <div class="action_lead_text">
+          マイユニット「<span id="first_add_unit"></span>」を入手しました。
+          </div>
+          <div class="action_result_unit">
+            <div id="first_unit_image_p4" class=""></div>
+          </div>
+          <div class="action_unit_comment">
+            <div id="first_unit_comment" class="action_unit_comment_text">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="present_action_container" class="action_container display_none">
+        <h1><span class="title_text"></span></h1>
+        <div id="present_p1" class="">
+          <div class="action_lead_text">
+          マイユニットに贈るプレゼントを選択してください。
+          </div>
+          <div id="present_select_area" class="action_select_area select_item">
+            <ul class="clearfix">
+              
+            </ul>
+          </div>
+        </div>
+        <div id="present_p2" class="display_none">
+          <div id="" class="action_send_message">
+            <div>
+              <span class="send_head">プレゼント</span>
+              <span id="present_name" class="send_white"></span>
+            </div>
+            <div>
+              <span class="send_head">プレゼント相手</span>
+              <span id="present_unit" class="send_white"></span>
+            </div>
+            <div>
+              <span class="send_head">所持MP</span>
+              <span class="send_white"><span id="present_user_mp"></span></span>
+            </div>
+            <div>
+              <span class="send_head">消費MP</span>
+              <span class="send_white"><span id="present_send_mp"></span></span>
+            </div>
+            <div>
+              <span class="send_head">プレゼント後の所持MP</span>
+              <span class="send_white"><span id="present_sum_mp"></span></span>
+            </div>
+          </div>
+          <div class="action_foot_text">
+          上記の内容でプレゼントします。<br>
+          よろしいですか？
+          </div>
+        </div>
+        <div id="present_p3" class="display_none">
+          <div class="animation_frame">
+            <div class="present_animation"></div>
+          </div>
+        </div>
+        <div id="present_p4" class="display_none">
+          <div class="action_lead_text">
+          マイユニット「<span id="present_result_unit"></span>」に「<span id="present_result_name"></span>」をプレゼントしました。
+          </div>
+          <div id="" class="action_present_result">
+            <div class="clearfix">
+              <div id="present_unit_image" class=""></div>
+              <div id="present_result_data">
+                <div id="present_result_plate">
+                  <div id="result_mood" class=""></div>
+                  <div id="result_touch" class="touch_icon">
+                    <span class="touch_count"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="action_unit_comment">
+            <div id="present_unit_comment" class="action_unit_comment_text">
+            </div>
+          </div>
+          <div class="action_foot_text">
+            <div id="present_result_touch">タッチ回数が増えました。</div>
+            <div id="present_result_mood">機嫌がよくなりました。</div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="buy_action_container" class="action_container display_none">
+        <h1><span class="title_text"></span></h1>
+        <div id="buy_p1" class="">
+          <div class="action_lead_text">
+          追加したいマイユニットを選択してください。
+          </div>
+          <div id="buy_select_area" class="action_select_area select_unit">
+            <ul class="clearfix">
+              
+            </ul>
+          </div>
+          <div class="action_foot_text">
+          マイユニットの追加にはMPが必要です。
+          </div>
+        </div>
+        <div id="buy_p2" class="display_none">
+          <div id="" class="action_result_unit">
+            <div id="buy_unit_image_p2" class=""></div>
+          </div>
+          <div id="" class="action_send_message">
+            <div>
+              <span class="send_head">追加マイユニット</span>
+              <span id="buy_unit" class="send_white"></span>
+            </div>
+            <div>
+              <span class="send_head">所持MP</span>
+              <span class="send_white"><span id="buy_user_mp"></span></span>
+            </div>
+            <div>
+              <span class="send_head">消費MP</span>
+              <span class="send_white"><span id="buy_send_mp"></span></span>
+            </div>
+            <div>
+              <span class="send_head">追加後の所持MP</span>
+              <span class="send_white"><span id="buy_sum_mp"></span></span>
+            </div>
+          </div>
+          <div class="action_foot_text">
+          上記の内容で追加します。<br>
+          よろしいですか？
+          </div>
+        </div>
+        <div id="buy_p3" class="display_none">
+          <div class="action_lead_text">
+          マイユニット「<span id="buy_add_unit"></span>」を入手しました。
+          </div>
+          <div class="action_result_unit">
+            <div id="buy_unit_image_p3" class=""></div>
+          </div>
+          <div class="action_unit_comment">
+            <div id="buy_unit_comment" class="action_unit_comment_text">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="contest_action_container" class="action_container display_none" data-result="0">
+        <h1><span class="title_text"></span></h1>
+        <div id="contest_p1" class="">
+          <div id="" class="action_send_message">
+            <div>
+              <span class="send_head">コンテスト参加ユニット</span>
+              <span id="contest_unit" class="send_white"></span>
+            </div>
+            <div>
+              <span class="send_head">所持MP</span>
+              <span class="send_white"><span id="contest_user_mp"></span></span>
+            </div>
+            <div>
+              <span class="send_head">消費MP</span>
+              <span class="send_white"><span id="contest_send_mp"></span></span>
+            </div>
+            <div>
+              <span class="send_head">コンテスト後の所持MP</span>
+              <span class="send_white"><span id="contest_sum_mp"></span></span>
+            </div>
+          </div>
+          <div class="action_foot_text">
+          上記の内容でコンテストに参加します。<br>
+          よろしいですか？
+          </div>
+        </div>
+        <div id="contest_p2" class="">
+          <div id="animation_frame">
+            <div class="contest_animation"></div>
+          </div>
+          <div id="contest_comment_frame" class="action_unit_comment">
+            <div id="contest_unit_comment" class="action_unit_comment_text">
+            </div>
+          </div>
+          <div class="action_foot_text">
+          人気ポイントを<span id="contest_get_pt"></span>pt入手しました。
+          </div>
+        </div>
+      </div>
+      
+      <div class="bt_button_area">
+        <div id="event_popup_back" class="bt_back display_none"></div>
+        <div id="event_popup_close" class="bt_close display_none"></div>
+        <div id="event_popup_accept" class="bt_accept display_none"></div>
+        <div id="event_popup_decline" class="bt_decline display_none"></div>
+        <div id="event_popup_cancel" class="bt_cancel display_none"></div>
+        <div id="event_popup_next" class="bt_next display_none"></div>
+      </div>
+    </div>
+  </div>
+
+      <div id="common_popup_wrapper" class="display_none">
+        <div class="popup_plate">
+            <div id="popup_container">
+                <div class="tx_c"></div>
+            </div>
+            
+            <div class="bt_button_area"> 
+                <div id="common_popup_back" class="bt_back display_none"></div> 
+                <div id="common_popup_close" class="bt_close"></div> 
+                <div id="common_popup_accept" class="bt_accept display_none"></div> 
+                <div id="common_popup_decline" class="bt_decline display_none"></div> 
+                <div id="common_popup_cancel" class="bt_cancel display_none"></div> 
+                <div id="common_popup_next" class="bt_next display_none"></div> 
+            </div>
+        </div>    
+    </div>
+
+
+      <div id="loading_wrapper" class="display_none">
+        <div id="page_loading" class="loading_anim"></div>
+    </div>
+
+
+      <div id="p_bottom_wrapper" class="clearfix">
+        <div id="p_page_top"></div>
+        <div id="p_copyright">
+            <span>©SEGA</span>
+        </div>
+        <div id="p_bottom_left"></div>
+        <div id="p_bottom_center"></div>
+        <div id="p_bottom_right"></div>
+    </div>
+
+</div>
+
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+
+</body>
+</html>

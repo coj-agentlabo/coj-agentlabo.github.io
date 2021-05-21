@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+  <link rel="stylesheet" href="css/friend.css" type="text/css">
+  <link rel="stylesheet" href="css/menu.css" type="text/css">
+
+<script>
+  var uk = "dc7dcfc49147c798d18059f6b45ffc97";
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/friend_search.js"></script>
+</head>
+<body class="">
+
+<div id="main_wrapper" class="friend_search">
+
+  
+  <div id="head_wrapper">
+    <div id="m_page_title"></div>
+    <div id="p_header_left"></div>
+    <div id="p_header_center"></div>
+    <div id="p_header_right"></div>
+  </div>
+
+      <div id="menu_wrapper">
+        <div id="menu_main" class="sprite-menu_main"></div>
+        <div id="menu_base" class="">
+            <div id="menu_list" class="">
+                <ul id="menu_list_col1">
+                    <li id="menu_info" class="sprite-menu_info"><a href="information"></a></li>
+                    <li id="menu_deck_editor" class="sprite-menu_deck_editor"><a href="deck_editor"></a></li>
+                    <li id="menu_deck_list" class="sprite-menu_deck_list"><a href="deck_list"></a></li>
+                    <li id="menu_card_list" class="sprite-menu_card_list"><a href="card_list"></a></li>
+                </ul>
+                <ul id="menu_list_col2">
+                    <li id="menu_player_file" class="sprite-menu_player_file"><a href="player_file"></a></li>
+                    <li id="menu_bulletin_board" class="sprite-menu_bulletin_board"><a href="bulletin_board"></a></li>
+                    <li id="menu_my_unit" class="sprite-menu_my_unit"><a href="my_unit"></a></li>
+                    <li id="menu_friend" class="sprite-menu_friend"><a href="friend"></a></li>
+                </ul>
+                <ul id="menu_list_col3">
+                    <li id="menu_ranking" class="sprite-menu_ranking"><a href="ranking"></a></li>
+                    <li id="menu_code" class="sprite-menu_code"><a href="code"></a></li>
+                    <li id="menu_help" class="sprite-menu_help"><a href="help?ref=search_user"></a></li>
+                    <li id="menu_setting" class="sprite-menu_setting"><a href="setting"></a></li>
+                    <li id="menu_logout" class="sprite-menu_logout"><a href="login"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <div id="m_sub_menu">
+    
+  </div>
+
+  
+  <div id="content_wrapper">
+
+    <div id="search_area">
+      <h1 id="p_page_title"></h1>
+      <ul id="search_contents">
+        <li>
+        プレイヤー名 : <input id="search_player_name" type="text" name="playerName" maxlength="10" value="">
+        </li>
+        <li>
+        ランク :
+        <select id="agent_rank_select">
+          <option value="">--</option>
+          
+            <option value="1">ROOKIE</option>
+          
+            <option value="2">BEGINNER</option>
+          
+            <option value="3">JACK</option>
+          
+            <option value="4">QUEEN</option>
+          
+            <option value="5">KING</option>
+          
+            <option value="6">ACE</option>
+          
+            <option value="7">No.0 FOOL</option>
+          
+            <option value="8">No.1 MAGICIAN</option>
+          
+            <option value="9">No.2 HIGH PRIESTESS</option>
+          
+            <option value="10">No.3 EMPRESS</option>
+          
+            <option value="11">No.4 EMPEROR</option>
+          
+            <option value="12">No.5 HIEROPHANT</option>
+          
+            <option value="13">No.6 LOVERS</option>
+          
+            <option value="14">No.7 CHARIOT</option>
+          
+            <option value="15">No.8 STRENGTH</option>
+          
+            <option value="16">No.9 HERMIT</option>
+          
+            <option value="17">No.10 WHEEL of FORTUNE</option>
+          
+            <option value="18">No.11 JUSTICE</option>
+          
+            <option value="19">No.12 HANGED MAN</option>
+          
+            <option value="20">No.13 DEATH</option>
+          
+            <option value="21">No.14 TEMPERANCE</option>
+          
+            <option value="22">No.15 DEVIL</option>
+          
+            <option value="23">No.16 TOWER</option>
+          
+            <option value="24">No.17 STAR</option>
+          
+            <option value="25">No.18 MOON</option>
+          
+            <option value="26">No.19 SUN</option>
+          
+            <option value="27">No.20 JUDGEMENT</option>
+          
+            <option value="28">No.21 WORLD</option>
+          
+        </select>
+        </li>
+        <li>
+        本拠地 :
+        <select id="region_select">
+          <option value="">--</option>
+          
+            <option value="hokkaido">北海道</option>
+          
+            <option value="aomori">青森県</option>
+          
+            <option value="iwate">岩手県</option>
+          
+            <option value="miyagi">宮城県</option>
+          
+            <option value="akita">秋田県</option>
+          
+            <option value="yamagata">山形県</option>
+          
+            <option value="fukushima">福島県</option>
+          
+            <option value="ibaraki">茨城県</option>
+          
+            <option value="tochigi">栃木県</option>
+          
+            <option value="gunma">群馬県</option>
+          
+            <option value="saitama">埼玉県</option>
+          
+            <option value="chiba">千葉県</option>
+          
+            <option value="tokyo">東京都</option>
+          
+            <option value="kanagawa">神奈川県</option>
+          
+            <option value="niigata">新潟県</option>
+          
+            <option value="toyama">富山県</option>
+          
+            <option value="ishikawa">石川県</option>
+          
+            <option value="fukui">福井県</option>
+          
+            <option value="yamanashi">山梨県</option>
+          
+            <option value="nagano">長野県</option>
+          
+            <option value="gihu">岐阜県</option>
+          
+            <option value="shizuoka">静岡県</option>
+          
+            <option value="aichi">愛知県</option>
+          
+            <option value="mie">三重県</option>
+          
+            <option value="shiga">滋賀県</option>
+          
+            <option value="kyoto">京都府</option>
+          
+            <option value="osaka">大阪府</option>
+          
+            <option value="hyogo">兵庫県</option>
+          
+            <option value="nara">奈良県</option>
+          
+            <option value="wakayama">和歌山県</option>
+          
+            <option value="tottori">鳥取県</option>
+          
+            <option value="shimane">島根県</option>
+          
+            <option value="okayama">岡山県</option>
+          
+            <option value="hiroshima">広島県</option>
+          
+            <option value="yamaguchi">山口県</option>
+          
+            <option value="tokushima">徳島県</option>
+          
+            <option value="kagawa">香川県</option>
+          
+            <option value="ehime">愛媛県</option>
+          
+            <option value="kouchi">高知県</option>
+          
+            <option value="fukuoka">福岡県</option>
+          
+            <option value="saga">佐賀県</option>
+          
+            <option value="nagasaki">長崎県</option>
+          
+            <option value="kumamoto">熊本県</option>
+          
+            <option value="oita">大分県</option>
+          
+            <option value="miyazaki">宮崎県</option>
+          
+            <option value="kagoshima">鹿児島県</option>
+          
+            <option value="okinawa">沖縄県</option>
+          
+        </select>
+        </li>
+        <li id="stores">
+        登録店舗 :
+        <select id="places_select">
+          <option value="">--</option>
+          
+        </select>
+        </li>
+      </ul>
+      <div id="search_attent">※プレイヤー名は必須です。</div>
+      <div id="search_bt" class="bt_search"></div>
+    </div>
+
+    <div id="search_list_area">
+      <div id="result_text">
+        各種条件を指定して、他のプレイヤーを検索できます。<br><br>
+        【検索方法】
+          <dl>
+          <dt>・プレイヤー名検索</dt>
+          <dd>プレイヤー名を入力して検索できます。</dd>
+          <dt>・ランク検索</dt>
+          <dd>ランクを指定して検索できます。</dd>
+          <dt>・本拠地検索</dt>
+          <dd>登録店舗に基づいて設定される都道府県を指定して検索できます。</dd>
+          <dt>・登録店舗検索</dt>
+          <dd>登録店舗に設定されている店舗を指定して検索できます。</dd>
+          </dl><br>
+          【注意事項】
+          <dl>
+          <dt>・該当するプレイヤーが100件を超える場合、100件までの検索結果を表示し、101件目以降については、表示されません。</dt>
+          <dt>・検索設定を非公開にしているプレイヤーは、検索結果に表示されません。</dt>
+          </dl>
+      </div>
+
+      <div id="search_player_result" class="display_none">
+        <div class="log_title orange">検索結果</div>
+        <div id="search_player_result_text" class="display_none"></div>
+      </div>
+      <div id="reault_list">
+        <div id="result">
+          
+        </div>
+      </div>
+
+      <div id="search_loading"></div>
+
+
+    </div>
+
+    
+    <div id="m_copyright">
+      <p>©SEGA</p>
+    </div>
+
+  </div>
+
+      <div id="common_popup_wrapper" class="display_none">
+        <div class="popup_plate">
+            <div id="popup_container">
+                <div class="tx_c"></div>
+            </div>
+            
+            <div class="bt_button_area"> 
+                <div id="common_popup_back" class="bt_back display_none"></div> 
+                <div id="common_popup_close" class="bt_close"></div> 
+                <div id="common_popup_accept" class="bt_accept display_none"></div> 
+                <div id="common_popup_decline" class="bt_decline display_none"></div> 
+                <div id="common_popup_cancel" class="bt_cancel display_none"></div> 
+                <div id="common_popup_next" class="bt_next display_none"></div> 
+            </div>
+        </div>    
+    </div>
+
+
+      <div id="loading_wrapper" class="display_none">
+        <div id="page_loading" class="loading_anim"></div>
+    </div>
+
+
+      <div id="p_bottom_wrapper" class="clearfix">
+        <div id="p_page_top"></div>
+        <div id="p_copyright">
+            <span>©SEGA</span>
+        </div>
+        <div id="p_bottom_left"></div>
+        <div id="p_bottom_center"></div>
+        <div id="p_bottom_right"></div>
+    </div>
+
+
+
+
+</div>
+
+
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+
+</body>
+</html>

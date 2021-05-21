@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+  <link rel="stylesheet" href="css/code.css" type="text/css">
+  <link rel="stylesheet" href="css/menu.css" type="text/css">
+
+<script>
+  var uk = "dc7dcfc49147c798d18059f6b45ffc97";
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/code.js"></script>
+</head>
+
+<body class="">
+
+<div id="main_wrapper" class="code">
+  
+  <div id="head_wrapper">
+    <div id="m_page_title"></div>
+    <div id="p_header_left"></div>
+    <div id="p_header_center"></div>
+    <div id="p_header_right"></div>
+  </div>
+
+       <div id="menu_wrapper">
+        <div id="menu_main" class="sprite-menu_main"></div>
+        <div id="menu_base" class="">
+            <div id="menu_list" class="">
+                <ul id="menu_list_col1">
+                    <li id="menu_info" class="sprite-menu_info"><a href="information"></a></li>
+                    <li id="menu_deck_editor" class="sprite-menu_deck_editor"><a href="deck_editor"></a></li>
+                    <li id="menu_deck_list" class="sprite-menu_deck_list"><a href="deck_list"></a></li>
+                    <li id="menu_card_list" class="sprite-menu_card_list"><a href="card_list"></a></li>
+                </ul>
+                <ul id="menu_list_col2">
+                    <li id="menu_player_file" class="sprite-menu_player_file"><a href="player_file"></a></li>
+                    <li id="menu_bulletin_board" class="sprite-menu_bulletin_board"><a href="bulletin_board"></a></li>
+                    <li id="menu_my_unit" class="sprite-menu_my_unit"><a href="my_unit"></a></li>
+                    <li id="menu_friend" class="sprite-menu_friend"><a href="friend"></a></li>
+                </ul>
+                <ul id="menu_list_col3">
+                    <li id="menu_ranking" class="sprite-menu_ranking"><a href="ranking"></a></li>
+                    <li id="menu_code" class="sprite-menu_code"><a href="code"></a></li>
+                    <li id="menu_help" class="sprite-menu_help"><a href="help?ref=code"></a></li>
+                    <li id="menu_setting" class="sprite-menu_setting"><a href="setting"></a></li>
+                    <li id="menu_logout" class="sprite-menu_logout"><a href="login"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <div id="m_sub_menu">
+    
+  </div>
+
+  
+  <div id="content_wrapper">
+
+    <h1 id="p_page_title"></h1>
+    <div id="code_input_area">
+      <div id="code_message" class="default"></div>
+      <div id="code_input_box">
+        <input type="text"  pattern="[0-9]*" name="code_1" size="4" maxlength="4" tabindex="1">
+        <input type="text"  pattern="[0-9]*" name="code_2" size="4" maxlength="4" tabindex="2">
+        <input type="text"  pattern="[0-9]*" name="code_3" size="4" maxlength="4" tabindex="3">
+        <input type="text"  pattern="[0-9]*" name="code_4" size="4" maxlength="4" tabindex="4">
+        <input type="text"  pattern="[0-9]*" name="code_5" size="4" maxlength="4" tabindex="5">
+        <div id="authentication_bt" class="bt_authentication"></div>
+      </div>
+      <div id="code_description">
+        <ol>
+          <li>入手した２０桁のコードを間違えずに入力後、認証ボタンを押して下さい。</li>
+          <li>コード入力に成功するとそのカードまたはアイテム名が記載されたダイアログが表示され、サテライト筐体で入手する権利を得ます。</li>
+          <li>入手権利を得たカードまたはアイテムは、次回のサテライト筐体ログイン時にメッセージが表示され、入手できます。</li>
+        </ol>
+        <p>※このページでコード入力に成功しただけではカードまたはアイテムは入手できませんのでご注意下さい。</p>
+      </div>
+    </div>
+
+    
+    <div id="m_copyright">
+      <p>©SEGA</p>
+    </div>
+
+  </div>
+
+      <div id="common_popup_wrapper" class="display_none">
+        <div class="popup_plate">
+            <div id="popup_container">
+                <div class="tx_c"></div>
+            </div>
+            
+            <div class="bt_button_area"> 
+                <div id="common_popup_back" class="bt_back display_none"></div> 
+                <div id="common_popup_close" class="bt_close"></div> 
+                <div id="common_popup_accept" class="bt_accept display_none"></div> 
+                <div id="common_popup_decline" class="bt_decline display_none"></div> 
+                <div id="common_popup_cancel" class="bt_cancel display_none"></div> 
+                <div id="common_popup_next" class="bt_next display_none"></div> 
+            </div>
+        </div>    
+    </div>
+
+
+      <div id="loading_wrapper" class="display_none">
+        <div id="page_loading" class="loading_anim"></div>
+    </div>
+
+
+      <div id="p_bottom_wrapper" class="clearfix">
+        <div id="p_page_top"></div>
+        <div id="p_copyright">
+            <span>©SEGA</span>
+        </div>
+        <div id="p_bottom_left"></div>
+        <div id="p_bottom_center"></div>
+        <div id="p_bottom_right"></div>
+    </div>
+
+</div>
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+
+</body>
+</html>

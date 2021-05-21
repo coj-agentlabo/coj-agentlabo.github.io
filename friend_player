@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+<link rel="stylesheet" href="css/web_cards.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+  <link rel="stylesheet" href="css/friend.css" type="text/css">
+  <link rel="stylesheet" href="css/menu.css" type="text/css">
+
+<script>
+  var uk = "dc7dcfc49147c798d18059f6b45ffc97";
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/friend_player.js"></script>
+</head>
+<body class="">
+
+<div id="main_wrapper" class="friend_player">
+
+  
+  <div id="head_wrapper">
+    <div id="m_page_title"></div>
+    <div id="p_header_left"></div>
+    <div id="p_header_center"></div>
+    <div id="p_header_right"></div>
+  </div>
+
+      <div id="menu_wrapper">
+        <div id="menu_main" class="sprite-menu_main"></div>
+        <div id="menu_base" class="">
+            <div id="menu_list" class="">
+                <ul id="menu_list_col1">
+                    <li id="menu_info" class="sprite-menu_info"><a href="information"></a></li>
+                    <li id="menu_deck_editor" class="sprite-menu_deck_editor"><a href="deck_editor"></a></li>
+                    <li id="menu_deck_list" class="sprite-menu_deck_list"><a href="deck_list"></a></li>
+                    <li id="menu_card_list" class="sprite-menu_card_list"><a href="card_list"></a></li>
+                </ul>
+                <ul id="menu_list_col2">
+                    <li id="menu_player_file" class="sprite-menu_player_file"><a href="player_file"></a></li>
+                    <li id="menu_bulletin_board" class="sprite-menu_bulletin_board"><a href="bulletin_board"></a></li>
+                    <li id="menu_my_unit" class="sprite-menu_my_unit"><a href="my_unit"></a></li>
+                    <li id="menu_friend" class="sprite-menu_friend"><a href="friend"></a></li>
+                </ul>
+                <ul id="menu_list_col3">
+                    <li id="menu_ranking" class="sprite-menu_ranking"><a href="ranking"></a></li>
+                    <li id="menu_code" class="sprite-menu_code"><a href="code"></a></li>
+                    <li id="menu_help" class="sprite-menu_help"><a href="help?ref=view_user"></a></li>
+                    <li id="menu_setting" class="sprite-menu_setting"><a href="setting"></a></li>
+                    <li id="menu_logout" class="sprite-menu_logout"><a href="login"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <div id="m_sub_menu">
+     
+  </div>
+
+  
+  <div id="content_wrapper">
+
+    <div id="request_status">
+      <div id="request_btn_container" style="display: none;">
+        <div class="bt_friend_ctl bt_freind_request" data-value="REQUEST"></div>
+      </div>
+      <div id="cancel_btn_container" style="display: none;">
+      <div class="bt_friend_ctl bt_freind_cancel" data-value="CANCEL"></div>
+      </div>
+      <div id="receive_btn_container" style="display: none;">
+        <div class="bt_friend_ctl bt_freind_approval" data-value="ACCEPT"></div>
+        <div class="bt_friend_ctl bt_freind_denial" data-value="DENY"></div>
+      </div>
+      <div id="remove_btn_container" style="display: block;">
+        <div class="bt_friend_ctl bt_freind_registered" data-value="REMOVE"></div>
+      </div>
+    </div>
+
+    <div id="profile_area">
+      <div id="profile_box">
+                 <div id="profile_image">
+            <div id="profile_image2" class="shigure"></div>
+            <div id="profile_image1" class="marine"></div>
+            <div id="profile_frame_bg"></div>
+        </div>
+        <div id="profile_list">
+            <div id="profile_player_name">ファス</div>
+            <div id="profile_code_name" class="profile_code_name_pro">
+                
+                    <img src="img/code_name/plate/codename_plate_0172.png">
+                
+                <img src="img/code_name/name/codename_1175.png">
+            </div>
+            
+            
+            <div id="profile_rank">No.4 EMPEROR
+            
+             level 1
+            
+            </div>
+            <div id="profile_rank_card" class="profile_rank_card" style="background: url(../img/agent_rank/agent_rank_l_65.png) no-repeat; background-size: 100%;">
+                
+                    <span id="rank_card_level" class="rank_card_level">1</span>
+                
+            </div>
+            <div id="profile_p1" class="profile_page league1 display_block">
+            
+                
+                    <dl>
+                        <dt>所持オーブ</dt>
+                        <dd>46個</dd>
+                    </dl>
+                    <dl>
+                        <dt>JP</dt>
+                        <dd>3,700 / 5000</dd>
+                    </dl>
+
+                
+             
+            <dl>
+                <dt>全国エージェントランキング</dt>
+                <dd>--</dd>
+            </dl>
+            <dl>
+                <dt>全国対戦数</dt>
+                <dd>9,779戦5,519勝</dd>
+            </dl>
+            <dl>
+                <dt>連勝数</dt>
+                <dd>0勝</dd>
+            </dl>
+            <dl>
+                <dt>最新戦績</dt>
+                <dd>10戦6勝</dd>
+            </dl>
+            </div>
+            <div id="profile_p2" class="profile_page display_none">
+            <dl>
+                <dt>今月の獲得名声</dt>
+                <dd>--</dd>
+            </dl>
+            <dl>
+                <dt>今月の名声ランキング</dt>
+                <dd>--位</dd>
+            </dl>
+            <dl>
+                <dt>先月の名声ランキング</dt>
+                <dd>--位</dd>
+            </dl>
+            <dl>
+                <dt>月間名声ランキング過去最高順位</dt>
+                <dd>8位</dd>
+            </dl>
+            <dl>
+                <dt>AC</dt>
+                <dd>340AC</dd>
+            </dl>
+            <dl>
+                <dt>MP</dt>
+                <dd>100,610MP</dd>
+            </dl>
+            </div>
+
+            <div id="profile_p3" class="profile_page display_none">
+            <dl>
+                <dt>デッキオリジナリティ</dt>
+                <dd>B (デッキ2)</dd>
+            </dl>
+            <dl>
+                <dt>ログインスタンプ</dt>
+                <dd>--/10</dd>
+            </dl>
+            <dl>
+                <dt>本拠地</dt>
+                <dd>滋賀県</dd>
+            </dl>
+            <dl>
+                <dt>登録店舗</dt>
+                <dd>ゲームディーノ彦根店</dd>
+            </dl>
+            </div>
+
+            <div id="profile_p4" class="profile_page display_none">
+            <div>1st</div>
+            <dl>
+                <dt>キャラクター</dt>
+                <dd>鈴森 まりね</dd>
+            </dl>
+            <dl>
+                <dt>ジョーカー</dt>
+                <dd>THE MAGICIAN</dd>
+            </dl>
+            <dl>
+                <dt>ジョーカーアビリティ</dt>
+                <dd>--</dd>
+            </dl>
+            <dl>
+                <dt>コスチューム</dt>
+                <dd>スタンダード</dd>
+            </dl>
+            <dl>
+                <dt>コスチュームカラー</dt>
+                <dd>緑</dd>
+            </dl>
+            </div>
+
+            <div id="profile_p5" class="profile_page display_none">
+            <div>2nd</div>
+            <dl>
+                <dt>キャラクター</dt>
+                <dd>霧谷 紫雨</dd>
+            </dl>
+            <dl>
+                <dt>ジョーカー</dt>
+                <dd>THE HERMIT</dd>
+            </dl>
+            <dl>
+                <dt>ジョーカーアビリティ</dt>
+                <dd>--</dd>
+            </dl>
+            <dl>
+                <dt>コスチューム</dt>
+                <dd>スタンダード</dd>
+            </dl>
+            <dl>
+                <dt>コスチュームカラー</dt>
+                <dd>白</dd>
+            </dl>
+            </div>
+        </div>
+
+        <div id="paging_s" class="clearfix">
+            <div id="left_s_bt" class="bt_left_s"></div>
+            <div id="page_box">
+                <span id="profile_page_num"></span>/<span id="profile_page_den"></span>
+            </div>
+            <div id="right_s_bt" class="bt_right_s"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="log_area">
+      
+        <div id="friend_my_unit">
+          <div id="friend_unit_info">
+            <div id="friend_unit_image" class="unit_image_ripper_1"></div>
+            <div id="friend_unit_level_effect">
+              
+                <div id="level_effect_2_1" class="effect_position_1"></div>
+              
+                <div id="level_effect_2_2" class="effect_position_2"></div>
+              
+                <div id="level_effect_2_3" class="effect_position_3"></div>
+              
+                <div id="level_effect_2_4" class="effect_position_4"></div>
+              
+                <div id="level_effect_2_5" class="effect_position_5"></div>
+              
+            </div>
+            <div id="friend_unit_name">りっぱー</div>
+            <div id="friend_friendly_level">Lv<span id="friend_friendly_value">283</div>
+          </div>
+        </div>
+      
+
+      
+      
+
+    </div>
+
+    
+    <div id="m_copyright">
+      <p>©SEGA</p>
+    </div>
+
+  </div>
+
+  
+  <div id="card_detail_wrapper" class="open">
+
+    <div id="p_card_detail_frame_top">
+      <div id="p_card_detail_frame_top_left"></div>
+      <div id="p_card_detail_frame_top_center"></div>
+      <div id="p_card_detail_frame_top_right"></div>
+      <div id="deck_arrow_bt"class="bt_deck_arrow"></div>
+    </div>
+    <div id="detail_container">
+      <div id="card_detail_container" class="">
+         <ul>
+           <li id="card_detail_no"></li>
+           <li id="card_detail_name"></li>
+           <li id="card_detail_rarity" class=""></li>
+           <li id="card_detail_CP"></li>
+           <li id="card_detail_type" class=""></li>
+           <li id="card_detail_color" class=""></li>
+           <li id="card_detail_species"></li>
+           <li id="card_detail_ver"></li>
+           <li id="card_detail_BP1"></li>
+           <li id="card_detail_BP2"></li>
+           <li id="card_detail_BP3"></li>
+           <li id="card_detail_op"></li>
+         </ul>
+         <div id="detail_SP_tab" class="on"></div>
+         <div id="detail_flavor_tab" class="off"></div>
+         <div id="regulation_tab" class="off"></div>
+         <div id="voice_tab" class="off"></div>
+         <div id="card_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="card_detail_flavor">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="regulation_info">
+           
+         </div>
+         <div id="voice_info">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="detail_order_board_bt" class="bt_order_board"></div>
+         <div id="detail_favo_bt" class="bt_favo_on"></div>
+         <div id="detail_virus_bt" class="bt_virus"></div>
+         <div id="card_detail_image_container">
+           <div id="card_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="card_detail_foil"></div>
+           <div id="card_detail_loading" class="loading_anim"></div>
+           <div id="card_detail_zoom"></div>
+         </div>
+       </div>
+
+       <div id="joker_detail_container" class="display_none">
+         <ul>
+           <li id="joker_detail_name"></li>
+           <li id="joker_detail_agent"></li>
+           <li id="joker_detail_joker_name"></li>
+           <li id="joker_detail_op"></li>
+           <li id="joker_detail_speed"></li>
+           <li id="joker_detail_lv"></li>
+           <li id="joker_detail_CP"></li>
+           <li id="joker_item_exp"><span id="exp_bar" style="width: 20%"></span></li>
+         </ul>
+         <div id="joker_SP_tab"></div>
+         <div id="joker_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="joker_detail_image_container">
+           <div id="joker_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="joker_detail_no" class=""></div>
+           <div id="joker_detail_loading" class="loading_anim"></div>
+         </div>
+       </div>
+
+      <div id="joker_detail_container_rank" class="display_none">
+         <ul>
+           <li id="joker_detail_name"></li>
+           <li id="joker_detail_agent"></li>
+           <li id="joker_detail_joker_name"></li>
+           <li id="joker_detail_op"></li>
+           <li id="joker_detail_speed"></li>
+           <li id="joker_detail_CP"></li>
+         </ul>
+         <div id="joker_SP_tab"></div>
+         <div id="joker_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="joker_detail_image_container">
+           <div id="joker_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="joker_detail_no" class=""></div>
+           <div id="joker_detail_loading" class="loading_anim"></div>
+         </div>
+       </div>
+
+       <div id="card_detail_close_bt" class="bt_close"></div>
+
+     </div>
+
+  </div>
+
+  
+  <div id="card_enlarge_wrapper" class="display_none">
+    <div id="card_enlarge_container">
+      <div id="card_enlarge_image_box">
+        <div id="card_enlarge1">
+          <div id="card_enlarge_image1" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil1" class="foil_large display_none"></div>
+          <div id="card_enlarge_illustrator1" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge2">
+          <div id="card_enlarge_image2" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil2" class="foil_large"></div>
+          <div id="card_enlarge_illustrator2" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge3">
+          <div id="card_enlarge_image3" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil3" class="foil_large"></div>
+          <div id="card_enlarge_illustrator3" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge_loading" class="loading_anim"></div>
+      </div>
+      <div id="enlarge_prev_bt" class="bt_enlarge_prev"></div>
+      <div id="enlarge_next_bt" class="bt_enlarge_next"></div>
+      <div id="enlarge_close_bt" class="bt_close"></div>
+    </div>
+  </div>
+
+  
+
+<div id="order_board_popup_wrapper" class="display_none">
+    <div id="order_board_popup_area">
+        <div id="order_board_popup_top">
+        <h1>カード募集掲示板設定</h1>
+        <div class="card_name_preview">選択中のカード【<span id="card_name_preview">魅惑のロシアンルーレット●●</span>】</div>
+        <p>欲しいカードまたは出せるカードに設定してください。</p>
+        <h2 class="order_popup_h2_01">欲しいカードに設定</h2>
+        <div class="order_popup_bt_area clearfix">
+            <div id="bt_order_board_popup_want_normal" class="normal_card_set_bt"></div>
+            <div id="bt_order_board_popup_want_foil" class="foil_card_set_bt"></div>
+          </div>
+        <h2 class="order_popup_h2_02">出せるカードに設定</h2>
+        <div class="order_popup_bt_area clearfix">
+            <div id="bt_order_board_popup_release_normal" class="setting_bt"></div>
+            <div id="bt_order_board_popup_release_foil" class="foil_card_set_bt"></div>
+          </div>
+        <p>※所持していないカードを「出せるカード」に設定することはできません。</p>
+      </div>
+        <div id="bt_order_board_popup_cancel_area" class="bt_cancel_area">
+        <div id="order_board_popup_cancel" class="bt_cancel cancel_center"></div>
+      </div>
+      </div>
+    </div>
+
+
+      <div id="common_popup_wrapper" class="display_none">
+        <div class="popup_plate">
+            <div id="popup_container">
+                <div class="tx_c"></div>
+            </div>
+            
+            <div class="bt_button_area"> 
+                <div id="common_popup_back" class="bt_back display_none"></div> 
+                <div id="common_popup_close" class="bt_close"></div> 
+                <div id="common_popup_accept" class="bt_accept display_none"></div> 
+                <div id="common_popup_decline" class="bt_decline display_none"></div> 
+                <div id="common_popup_cancel" class="bt_cancel display_none"></div> 
+                <div id="common_popup_next" class="bt_next display_none"></div> 
+            </div>
+        </div>    
+    </div>
+
+
+      <div id="loading_wrapper" class="display_none">
+        <div id="page_loading" class="loading_anim"></div>
+    </div>
+
+
+      <div id="p_bottom_wrapper" class="clearfix">
+        <div id="p_page_top"></div>
+        <div id="p_copyright">
+            <span>©SEGA</span>
+        </div>
+        <div id="p_bottom_left"></div>
+        <div id="p_bottom_center"></div>
+        <div id="p_bottom_right"></div>
+    </div>
+
+</div>
+
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+
+</body>
+</html>

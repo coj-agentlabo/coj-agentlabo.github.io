@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+
+  <link href="css/aime.css" rel="stylesheet" type="text/css">
+
+<script>
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script src="js/common.js"></script>  -->
+<script src="js/select_aime.js"></script>
+</head>
+<body>
+<div id="main_wrapper">
+      <div id="content_wrapper">
+      <div id="aime_text_select"></div>
+              <div class="aime_plate valid" data-index="0">
+          
+            <ul>
+              <li class="aime_char1 shigure"></li>
+              <li class="aime_char2 leon"></li>
+              <li class="aime_agent-rank" style="background-image: url(img/agent_rank/agent_rank_l_67.png); background-size: 100%">
+                
+                  <span id="rank_card_level" class="rank_card_level">2</span>
+                
+              </li>
+              <li class="aime_player-name">おぐなー</li>
+              <li class="aime_code-name">
+                
+                  <img src="img/code_name/plate/codename_plate_0735.png">
+                
+                <img src="img/code_name/name/codename_1431.png">
+              </li>
+              <li class="aime_card_number">1350枚</li>
+              <li class="aime_place">セガ明石</li>
+            </ul>
+          
+          
+        </div>
+              <div class="aime_plate valid" data-index="1">
+          
+            <ul>
+              <li class="aime_char1 marine"></li>
+              <li class="aime_char2 saya"></li>
+              <li class="aime_agent-rank" style="background-image: url(img/agent_rank/agent_rank_l_10.png); background-size: 100%">
+                
+              </li>
+              <li class="aime_player-name">Ｎ７０５ｉ</li>
+              <li class="aime_code-name">
+                
+                  <img src="img/code_name/plate/codename_plate_0357.png">
+                
+                <img src="img/code_name/name/codename_0098.png">
+              </li>
+              <li class="aime_card_number">1271枚</li>
+              <li class="aime_place">ＡＭスクエアＡＬＧＯ</li>
+            </ul>
+          
+          
+        </div>
+              <div class="aime_plate valid" data-index="2">
+          
+            <ul>
+              <li class="aime_char1 jin"></li>
+              <li class="aime_char2 leon"></li>
+              <li class="aime_agent-rank" style="background-image: url(img/agent_rank/agent_rank_l_63.png); background-size: 100%">
+                
+                  <span id="rank_card_level" class="rank_card_level">1</span>
+                
+              </li>
+              <li class="aime_player-name">聖天使ニケ</li>
+              <li class="aime_code-name">
+                
+                  <img src="img/code_name/plate/codename_plate_0478.png">
+                
+                <img src="img/code_name/name/codename_0036.png">
+              </li>
+              <li class="aime_card_number">1345枚</li>
+              <li class="aime_place">アテナ日本橋</li>
+            </ul>
+          
+          
+        </div>
+            <div id="copyright">&copy;SEGA</div>
+    </div>
+  </div>
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+
+</body>
+</html>

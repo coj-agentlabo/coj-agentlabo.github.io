@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<link rel="stylesheet" href="css/order_board.css" type="text/css">
+<link rel="stylesheet" href="css/menu.css" type="text/css">
+
+<script>
+  var uk = "dc7dcfc49147c798d18059f6b45ffc97";
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/bulletin_board.js"></script>
+</head>
+
+<body class="">
+<div id="main_wrapper" class="order_board">
+  
+  <div id="head_wrapper">
+    <div id="m_page_title"></div>
+    <div id="p_header_left"></div>
+    <div id="p_header_center"></div>
+    <div id="p_header_right"></div>
+  </div>
+      <div id="menu_wrapper">
+        <div id="menu_main" class="sprite-menu_main"></div>
+        <div id="menu_base" class="">
+            <div id="menu_list" class="">
+                <ul id="menu_list_col1">
+                    <li id="menu_info" class="sprite-menu_info"><a href="information"></a></li>
+                    <li id="menu_deck_editor" class="sprite-menu_deck_editor"><a href="deck_editor"></a></li>
+                    <li id="menu_deck_list" class="sprite-menu_deck_list"><a href="deck_list"></a></li>
+                    <li id="menu_card_list" class="sprite-menu_card_list"><a href="card_list"></a></li>
+                </ul>
+                <ul id="menu_list_col2">
+                    <li id="menu_player_file" class="sprite-menu_player_file"><a href="player_file"></a></li>
+                    <li id="menu_bulletin_board" class="sprite-menu_bulletin_board"><a href="bulletin_board"></a></li>
+                    <li id="menu_my_unit" class="sprite-menu_my_unit"><a href="my_unit"></a></li>
+                    <li id="menu_friend" class="sprite-menu_friend"><a href="friend"></a></li>
+                </ul>
+                <ul id="menu_list_col3">
+                    <li id="menu_ranking" class="sprite-menu_ranking"><a href="ranking"></a></li>
+                    <li id="menu_code" class="sprite-menu_code"><a href="code"></a></li>
+                    <li id="menu_help" class="sprite-menu_help"><a href="help?ref=order_board"></a></li>
+                    <li id="menu_setting" class="sprite-menu_setting"><a href="setting"></a></li>
+                    <li id="menu_logout" class="sprite-menu_logout"><a href="login"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  <div id="m_sub_menu" class="clearfix"></div>
+  
+  <div id="content_wrapper">
+    <div id="p_page_title"></div>
+    <div class="order_board_card_preview_area">
+      <div class="log_title green ">カード募集シートのプレビュー</div>
+      <div class="order_board_card_preview_box">
+        <div class="card_set_bg">
+          <div id="order_comment_preview" class="order_comment_preview">--</div>
+          <ul>
+            <li id="want_card_name" class="want_card_name">--</li>
+            <li id="want_card_img" class="want_card_img"></li>
+            <li id="want_card_foil" class="display_none"></li>
+            <li id="want_card_rarity" class=""></li>
+          </ul>
+          <ul>
+            <li id="present_card_name" class="present_card_name">--</li>
+            <li id="present_card_img" class="present_card_img"></li>
+            <li id="present_card_foil" class="display_none"></li>
+            <li id="present_card_rarity" class=""></li>
+          </ul>
+        </div>
+        <p class="preview_hint">筐体にログインすると、ターミナル筐体の「カード募集掲示板」にあなたのカード募集シートが掲載されます。</p>
+      </div>
+    </div>
+    <div id="order_board_setting_area">
+      <div class="order_board_set_area">
+        <div class="log_title green">カード設定</div>
+        <div class="order_board_sb_set_bg">
+          <div class="want_card_bg clearfix">
+            <p>欲しいカード</p>
+            <div id="want_card_unset_bt" class="bt_card_unset"></div>
+          </div>
+          <div class="present_card_bg clearfix">
+            <p>出せるカード</p>
+            <div id="release_card_unset_bt" class="bt_card_unset"></div>
+          </div>
+          <div class="card_set_bt_box clearfix">
+            <div id="bt_card_set" class="bt_card_set"></div>
+            <div id="bt_card_set_reset" class="bt_card_set_reset"></div>
+          </div>
+          
+          
+          <div class="order_board_hint"></div>
+          <p id="bt_comic_hint" class="bt_comic_hint">マンガを読む</p>
+        </div>
+      </div>
+      <div id="order_board_message_set_area">
+        <div id="order_board_game_message_set_area">
+          <div class="log_title green">メッセージ設定</div>
+          <div id="order_board_message_set_box" class="order_board_sb_set_bg">
+            <div class="display_set_list">
+              <div id="set_message"></div>
+              <div id="bt_select" class="bt_select"></div>
+            </div>
+            <p class="gray_bg">※選択ボタンをクリックするとメッセージの設定を変更できます。</p>
+          </div>
+        </div>
+        <div id="order_board_game_display_set_area">
+          <div class="log_title green">カード募集掲示板機能の有効/無効</div>
+          <div id="order_board_game_display_set_box" class="order_board_sb_set_bg">
+            <div class="display_set_list clearfix">
+              <select name="test" id="valid_setting">
+                <option value="1">有効</option>
+                <option value="0">無効</option>
+              </select>
+              <div id="game_display_information_set_bt" class="bt_setting_set"></div>
+            </div>
+            <p class="gray_bg">※無効にすると自身の設定した情報がターミナル筐体に表示されなくなります。</p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="m_copyright">
+        <p>©SEGA</p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="comic_hint_wrapper" class="display_none">
+    <div class="comic_hint_area">
+      <p class="comic_hint"></p>
+      <div id="hint_comic_close" class="bt_close"></div>
+    </div>
+  </div>
+  
+  <div id="message_list_wrapper" class="display_none">
+    <div id="message_list_area" class="message_list_area">
+      <div class="message_content">
+        <div class="message_title">欲しいカード</div>
+        <ul id="want_message_list">
+          
+        </ul>
+      </div>
+      <div class="message_content">
+        <div class="message_title">出せるカード</div>
+        <ul id="release_message_list">
+          
+        </ul>
+      </div>
+      <div class="message_content">
+        <div class="message_title">その他</div>
+        <ul id="other_message_list">
+          
+        </ul>
+      </div>
+      <div id="message_bt_area" class="clearfix">
+        <div id="message_setting_btn" class="bt_setting_set"></div>
+        <div id="message_cancel_btn" class="bt_cancel"></div>
+      </div>
+    </div>
+  </div>
+      <div id="common_popup_wrapper" class="display_none">
+        <div class="popup_plate">
+            <div id="popup_container">
+                <div class="tx_c"></div>
+            </div>
+            
+            <div class="bt_button_area"> 
+                <div id="common_popup_back" class="bt_back display_none"></div> 
+                <div id="common_popup_close" class="bt_close"></div> 
+                <div id="common_popup_accept" class="bt_accept display_none"></div> 
+                <div id="common_popup_decline" class="bt_decline display_none"></div> 
+                <div id="common_popup_cancel" class="bt_cancel display_none"></div> 
+                <div id="common_popup_next" class="bt_next display_none"></div> 
+            </div>
+        </div>    
+    </div>
+
+      <div id="loading_wrapper" class="display_none">
+        <div id="page_loading" class="loading_anim"></div>
+    </div>
+
+      <div id="p_bottom_wrapper" class="clearfix">
+        <div id="p_page_top"></div>
+        <div id="p_copyright">
+            <span>©SEGA</span>
+        </div>
+        <div id="p_bottom_left"></div>
+        <div id="p_bottom_center"></div>
+        <div id="p_bottom_right"></div>
+    </div>
+</div>
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+</body>
+</html>

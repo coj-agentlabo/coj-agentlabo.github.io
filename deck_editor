@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+<link rel="stylesheet" href="css/animation.css" type="text/css">
+<link rel="stylesheet" href="css/web_cards.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css?v=545qh4tbgb" type="text/css">
+  <link rel="stylesheet" href="css/deck_editor.css?v=545qh4tbgb" type="text/css">
+  <link rel="stylesheet" href="css/card_box.css" type="text/css">
+  <link rel="stylesheet" href="css/menu.css" type="text/css">
+
+<script>
+  var uk = "dc7dcfc49147c798d18059f6b45ffc97";
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+  var pageType = 'deck_editor';
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cardbox_tools.js"></script>
+<script src="js/deck_editor.js"></script>
+
+</head>
+
+<body class="">
+
+<div id="main_wrapper" class="deck_editor">
+
+  
+  <div id="head_wrapper">
+    <div id="m_page_title"></div>
+    <div id="p_header_left"></div>
+    <div id="p_header_center"></div>
+    <div id="p_header_right"></div>
+
+    <ul id="m_deck_element" class="">
+      <li id="m_deck_all"><span id="m_deck_num">40</span>/40</li>
+      <li id="m_deck_unit">00</li>
+      <li id="m_deck_trigger">00</li>
+      <li id="m_deck_intercept">00</li>
+      <li id="m_deck_dob_bt" class="bt_deck_dob"></li>
+      <li id="m_deck_rank">
+        <span id="m_rank_img" class=""></span>
+        <span id="m_rank_point">--</span>
+      </li>
+    </ul>
+  </div>
+
+      <div id="menu_wrapper">
+        <div id="menu_main" class="sprite-menu_main"></div>
+        <div id="menu_base" class="">
+            <div id="menu_list" class="">
+                <ul id="menu_list_col1">
+                    <li id="menu_info" class="sprite-menu_info"><a href="information"></a></li>
+                    <li id="menu_deck_editor" class="sprite-menu_deck_editor"><a href="deck_editor"></a></li>
+                    <li id="menu_deck_list" class="sprite-menu_deck_list"><a href="deck_list"></a></li>
+                    <li id="menu_card_list" class="sprite-menu_card_list"><a href="card_list"></a></li>
+                </ul>
+                <ul id="menu_list_col2">
+                    <li id="menu_player_file" class="sprite-menu_player_file"><a href="player_file"></a></li>
+                    <li id="menu_bulletin_board" class="sprite-menu_bulletin_board"><a href="bulletin_board"></a></li>
+                    <li id="menu_my_unit" class="sprite-menu_my_unit"><a href="my_unit"></a></li>
+                    <li id="menu_friend" class="sprite-menu_friend"><a href="friend"></a></li>
+                </ul>
+                <ul id="menu_list_col3">
+                    <li id="menu_ranking" class="sprite-menu_ranking"><a href="ranking"></a></li>
+                    <li id="menu_code" class="sprite-menu_code"><a href="code"></a></li>
+                    <li id="menu_help" class="sprite-menu_help"><a href="help?ref=deck_editor"></a></li>
+                    <li id="menu_setting" class="sprite-menu_setting"><a href="setting"></a></li>
+                    <li id="menu_logout" class="sprite-menu_logout"><a href="login"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <div id="m_sub_menu" class="clearfix">
+    <div id="menu_detail" class="display_block">
+      <div id="menu_detail_anim"></div>
+      <div id="menu_detail_bt" class="bt_menu_detail"></div>
+    </div>
+    <ul>
+      <li id="sub_menu_search_filter"></li>
+      <li id="sub_menu_sort_save"></li>
+      <li id="sub_menu_page_left" class="disable"></li>
+      <li id="sub_menu_page_right" class="disable"></li>
+    </ul>
+    <div id="m_paging">
+      <span id="sub_page_num">0</span>/<span id="sub_page_den">0</span>
+    </div>
+  </div>
+
+  
+  <div id="content_wrapper">
+
+    
+    <div id="deck_area">
+
+      <div id="p_deck_frame_top">
+        <div id="p_deck_frame_top_left"></div>
+        <div id="p_deck_frame_top_center"></div>
+        <div id="p_deck_frame_top_right"></div>
+        <ul id="p_deck_element" class="usable">
+          <li id="p_deck_all"><span id="p_deck_num">40</span>/40</li>
+          <li id="p_deck_unit">00</li>
+          <li id="p_deck_trigger">00</li>
+          <li id="p_deck_intercept">00</li>
+          <li id="p_deck_dob_bt" class="bt_deck_dob"><li>
+          <li id="p_deck_rank">
+            <span id="p_rank_img" class=""></span>
+            <span id="p_rank_point">--</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="deck_frame">
+        <div id="deck_contents" class="clearfix deck_1row">
+          <ul id="deck_joker" class="clearfix">
+            <li id="deck_1st">
+              <div id="deck_1st_box">
+                
+              </div>
+              <div class="joker_mark_1st"></div>
+            </li>
+            <li id="deck_2nd">
+              <div id="deck_2nd_box">
+                
+              </div>
+              <div class="joker_mark_2nd"></div>
+            </li>
+          </ul>
+          <ul id="deck_card" class="clearfix">
+            
+          </ul>
+          <div id="deck_move_frame" class="card_move" style="top:0; left:169px;">
+            <div id="deck_move_text" class=""></div>
+          </div>
+          <div id="move_effect" class="move_anim" style="top: 6px; left: 367px;"></div>
+        </div>
+      </div>
+
+      <div id="p_deck_frame_bottom">
+        <div id="p_deck_frame_bottom_left"></div>
+        <div id="p_deck_frame_bottom_center"></div>
+        <div id="p_deck_frame_bottom_right"></div>
+      </div>
+
+    </div>
+    
+
+    
+    <div id="cardbox_area" class="open">
+
+      <div id="cardbox_frame_top">
+        <div id="m_cardbox_title" class="cardbox_title_card"></div>
+        <div id="deck_row_bt" class="bt_deck_1row"></div>
+        <div id="p_cardbox_frame_top_left"></div>
+        <div id="p_cardbox_frame_top_center"></div>
+        <div id="p_cardbox_frame_top_right"></div>
+        <div id="p_cardbox_element">
+          <div id="paging_s" class="clearfix">
+            <div id="left_s_bt" class="bt_left_s disable"></div>
+            <div id="page_box">
+              <span id="cardbox_page_num">1</span>/<span id="cardbox_page_den">1</span>
+            </div>
+            <div id="right_s_bt" class="bt_right_s disable"></div>
+          </div>
+          <input type="text" value="カード検索..." size="10" id="p_card_search">
+          <select name="box_sort_type" id="p_card_sort_type">
+            <option value="1">カード番号</option>
+            <option value="2">カード種類</option>
+            <option value="3">カード種族</option>
+            <option value="4">ﾚｱﾘﾃｨ昇順</option>
+            <option value="5">ﾚｱﾘﾃｨ降順</option>
+            <option value="6">ＣＰ昇順</option>
+            <option value="7">ＣＰ降順</option>
+            <option value="8">ＢＰ昇順</option>
+            <option value="9">ＢＰ降順</option>
+            <option value="10">ｵﾘｼﾞﾅﾙP昇順</option>
+            <option value="11">ｵﾘｼﾞﾅﾙP降順</option>
+          </select>
+          <div id="select_filter_bt" class="bt_select_filter"></div>
+        </div>
+      </div>
+
+      <div id="cardbox_frame">
+        <div id="cardbox_contents" class="clearfix">
+          <ul id="cardbox_card" class="clearfix">
+            
+          </ul>
+
+          <ul id="cardbox_joker" class="clearfix display_none">
+            
+          </ul>
+
+          
+          <div id="m_copyright">
+            <p>©SEGA</p>
+          </div>
+
+          <div id="cardbox_move_frame" class="card_notmove" style="top:0; left:0;">
+            <div id="cardbox_move_text" class=""></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+
+  </div>
+
+  
+  <div id="card_detail_wrapper" class="open">
+
+    <div id="p_card_detail_frame_top">
+      <div id="p_card_detail_frame_top_left"></div>
+      <div id="p_card_detail_frame_top_center"></div>
+      <div id="p_card_detail_frame_top_right"></div>
+      <div id="deck_arrow_bt"class="bt_deck_arrow"></div>
+    </div>
+    <div id="detail_container">
+      <div id="card_detail_container" class="">
+         <ul>
+           <li id="card_detail_no"></li>
+           <li id="card_detail_name"></li>
+           <li id="card_detail_rarity" class=""></li>
+           <li id="card_detail_CP"></li>
+           <li id="card_detail_type" class=""></li>
+           <li id="card_detail_color" class=""></li>
+           <li id="card_detail_species"></li>
+           <li id="card_detail_ver"></li>
+           <li id="card_detail_BP1"></li>
+           <li id="card_detail_BP2"></li>
+           <li id="card_detail_BP3"></li>
+           <li id="card_detail_op"></li>
+         </ul>
+         <div id="detail_SP_tab" class="on"></div>
+         <div id="detail_flavor_tab" class="off"></div>
+         <div id="regulation_tab" class="off"></div>
+         <div id="voice_tab" class="off"></div>
+         <div id="card_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="card_detail_flavor">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="regulation_info">
+           
+         </div>
+         <div id="voice_info">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="detail_order_board_bt" class="bt_order_board"></div>
+         <div id="detail_favo_bt" class="bt_favo_on"></div>
+         <div id="detail_virus_bt" class="bt_virus"></div>
+         <div id="card_detail_image_container">
+           <div id="card_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="card_detail_foil"></div>
+           <div id="card_detail_loading" class="loading_anim"></div>
+           <div id="card_detail_zoom"></div>
+         </div>
+       </div>
+
+       <div id="joker_detail_container" class="display_none">
+         <ul>
+           <li id="joker_detail_name"></li>
+           <li id="joker_detail_agent"></li>
+           <li id="joker_detail_joker_name"></li>
+           <li id="joker_detail_op"></li>
+           <li id="joker_detail_speed"></li>
+           <li id="joker_detail_lv"></li>
+           <li id="joker_detail_CP"></li>
+           <li id="joker_item_exp"><span id="exp_bar" style="width: 20%"></span></li>
+         </ul>
+         <div id="joker_SP_tab"></div>
+         <div id="joker_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="joker_detail_image_container">
+           <div id="joker_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="joker_detail_no" class=""></div>
+           <div id="joker_detail_loading" class="loading_anim"></div>
+         </div>
+       </div>
+
+      <div id="joker_detail_container_rank" class="display_none">
+         <ul>
+           <li id="joker_detail_name"></li>
+           <li id="joker_detail_agent"></li>
+           <li id="joker_detail_joker_name"></li>
+           <li id="joker_detail_op"></li>
+           <li id="joker_detail_speed"></li>
+           <li id="joker_detail_CP"></li>
+         </ul>
+         <div id="joker_SP_tab"></div>
+         <div id="joker_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="joker_detail_image_container">
+           <div id="joker_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="joker_detail_no" class=""></div>
+           <div id="joker_detail_loading" class="loading_anim"></div>
+         </div>
+       </div>
+
+       <div id="card_detail_close_bt" class="bt_close"></div>
+
+     </div>
+
+  </div>
+
+  
+  <div id="card_enlarge_wrapper" class="display_none">
+    <div id="card_enlarge_container">
+      <div id="card_enlarge_image_box">
+        <div id="card_enlarge1">
+          <div id="card_enlarge_image1" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil1" class="foil_large display_none"></div>
+          <div id="card_enlarge_illustrator1" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge2">
+          <div id="card_enlarge_image2" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil2" class="foil_large"></div>
+          <div id="card_enlarge_illustrator2" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge3">
+          <div id="card_enlarge_image3" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil3" class="foil_large"></div>
+          <div id="card_enlarge_illustrator3" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge_loading" class="loading_anim"></div>
+      </div>
+      <div id="enlarge_prev_bt" class="bt_enlarge_prev"></div>
+      <div id="enlarge_next_bt" class="bt_enlarge_next"></div>
+      <div id="enlarge_close_bt" class="bt_close"></div>
+    </div>
+  </div>
+
+  
+
+<div id="order_board_popup_wrapper" class="display_none">
+    <div id="order_board_popup_area">
+        <div id="order_board_popup_top">
+        <h1>カード募集掲示板設定</h1>
+        <div class="card_name_preview">選択中のカード【<span id="card_name_preview">魅惑のロシアンルーレット●●</span>】</div>
+        <p>欲しいカードまたは出せるカードに設定してください。</p>
+        <h2 class="order_popup_h2_01">欲しいカードに設定</h2>
+        <div class="order_popup_bt_area clearfix">
+            <div id="bt_order_board_popup_want_normal" class="normal_card_set_bt"></div>
+            <div id="bt_order_board_popup_want_foil" class="foil_card_set_bt"></div>
+          </div>
+        <h2 class="order_popup_h2_02">出せるカードに設定</h2>
+        <div class="order_popup_bt_area clearfix">
+            <div id="bt_order_board_popup_release_normal" class="setting_bt"></div>
+            <div id="bt_order_board_popup_release_foil" class="foil_card_set_bt"></div>
+          </div>
+        <p>※所持していないカードを「出せるカード」に設定することはできません。</p>
+      </div>
+        <div id="bt_order_board_popup_cancel_area" class="bt_cancel_area">
+        <div id="order_board_popup_cancel" class="bt_cancel cancel_center"></div>
+      </div>
+      </div>
+    </div>
+
+
+      <div id="filter_wrapper">
+        <div id="m_filter_frame_top"></div>
+        <div id="filter_palette">
+            <div id="filter_list">
+                <div id="m_card_search">
+                    <input type="text" value="カード検索..." size="10" id="m_card_search_text" class="empty">
+                    <select name="box_sort_type" id="m_card_sort_type">
+                        
+                    </select>
+                </div>
+                <div class="box_selecter">
+                    <ul id="filter_favo">
+                        <li class="all">
+                            <input type="checkbox" data-type="fav" value="" name="fav_all" id="fav_all">
+                            <label for="fav_all">お気に入りのみ(<span id="filter_favo_num">0</span>/<span id="filter_favo_den"_>39</span>)</label>
+                        </li>
+                    </ul>
+                    <ul id="filter_dop" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="dop" checked="checked" value="" name="dop_all" id="dop_all" class="check_all">
+                            <label for="dop_all">オリジナルP</label>
+                            <div class="bt_arrow" data-val="dop"></div>
+                        </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="dop" checked="checked" value="0" name="dop_0" id="dop_0" class="filter_dop">
+                                <label for="dop_0">0</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="dop" checked="checked" value="1" name="dop_1" id="dop_1" class="filter_dop">
+                                <label for="dop_1">1</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="dop" checked="checked" value="2" name="dop_2" id="dop_2" class="filter_dop">
+                                <label for="dop_2">2</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="dop" checked="checked" value="4" name="dop_4" id="dop_4" class="filter_dop">
+                                <label for="dop_4">4</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="dop" checked="checked" value="8" name="dop_8" id="dop_8" class="filter_dop">
+                                <label for="dop_8">8</label>
+                            </li>
+                        
+                    </ul>
+                    <ul id="filter_type" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="type" checked="checked" value="" name="type_all" id="type_all" class="check_all">
+                            <label for="type_all">カードタイプ</label>
+                            <div class="bt_arrow" data-val="type"></div>
+                        </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="type" checked="checked" value="1" name="type_1" id="type_1" class="filter_type">
+                                <label for="type_1">ユニット</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="type" checked="checked" value="2" name="type_2" id="type_2" class="filter_type">
+                                <label for="type_2">進化ユニット</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="type" checked="checked" value="3" name="type_3" id="type_3" class="filter_type">
+                                <label for="type_3">トリガー</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="type" checked="checked" value="4" name="type_4" id="type_4" class="filter_type">
+                                <label for="type_4">インターセプト</label>
+                            </li>
+                        
+                    </ul>
+                    <ul id="filter_color" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="color" checked="checked" value="" name="color_all" id="color_all" class="check_all">
+                            <label for="color_all">属性</label>
+                            <div class="bt_arrow" data-val="color"></div>
+                        </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="color" checked="checked" value="1" name="color_1" id="color_1" class="filter_color">
+                                <label for="color_1">赤属性</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="color" checked="checked" value="2" name="color_2" id="color_2" class="filter_color">
+                                <label for="color_2">黄属性</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="color" checked="checked" value="3" name="color_3" id="color_3" class="filter_color">
+                                <label for="color_3">青属性</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="color" checked="checked" value="4" name="color_4" id="color_4" class="filter_color">
+                                <label for="color_4">緑属性</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="color" checked="checked" value="5" name="color_5" id="color_5" class="filter_color">
+                                <label for="color_5">紫属性</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="color" checked="checked" value="6" name="color_6" id="color_6" class="filter_color">
+                                <label for="color_6">無属性</label>
+                            </li>
+                        
+                    </ul>
+                    <ul id="filter_species" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="species" checked="checked" value="" name="species_all" id="species_all" class="check_all">
+                            <label for="species_all">種族</label>
+                            <div class="bt_arrow" data-val="species"></div>
+                        </li>
+                        <li class="info">※種族のフィルター中はユニット、進化ユニットのみ表示されます。</li>
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="1" name="species_1" id="species_1" class="filter_species">
+                                    <label for="species_1">珍獣</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="2" name="species_2" id="species_2" class="filter_species">
+                                    <label for="species_2">戦士</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="3" name="species_3" id="species_3" class="filter_species">
+                                    <label for="species_3">魔導士</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="4" name="species_4" id="species_4" class="filter_species">
+                                    <label for="species_4">精霊</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="5" name="species_5" id="species_5" class="filter_species">
+                                    <label for="species_5">悪魔</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="6" name="species_6" id="species_6" class="filter_species">
+                                    <label for="species_6">獣</label>
+                                </li>
+                            
+                        
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="8" name="species_8" id="species_8" class="filter_species">
+                                    <label for="species_8">機械</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="9" name="species_9" id="species_9" class="filter_species">
+                                    <label for="species_9">巨人</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="10" name="species_10" id="species_10" class="filter_species">
+                                    <label for="species_10">海洋</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="11" name="species_11" id="species_11" class="filter_species">
+                                    <label for="species_11">不死</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="12" name="species_12" id="species_12" class="filter_species">
+                                    <label for="species_12">英雄</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="13" name="species_13" id="species_13" class="filter_species">
+                                    <label for="species_13">神</label>
+                                </li>
+                            
+                        
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="15" name="species_15" id="species_15" class="filter_species">
+                                    <label for="species_15">侍</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="16" name="species_16" id="species_16" class="filter_species">
+                                    <label for="species_16">忍者</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="17" name="species_17" id="species_17" class="filter_species">
+                                    <label for="species_17">天使</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="18" name="species_18" id="species_18" class="filter_species">
+                                    <label for="species_18">昆虫</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="19" name="species_19" id="species_19" class="filter_species">
+                                    <label for="species_19">盗賊</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="20" name="species_20" id="species_20" class="filter_species">
+                                    <label for="species_20">道化師</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="21" name="species_21" id="species_21" class="filter_species">
+                                    <label for="species_21">神獣</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="22" name="species_22" id="species_22" class="filter_species">
+                                    <label for="species_22">舞姫</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="23" name="species_23" id="species_23" class="filter_species">
+                                    <label for="species_23">四聖獣</label>
+                                </li>
+                            
+                        
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="25" name="species_25" id="species_25" class="filter_species">
+                                    <label for="species_25">武身</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="species" checked="checked" value="26" name="species_26" id="species_26" class="filter_species">
+                                    <label for="species_26">ドラゴン</label>
+                                </li>
+                            
+                        
+                    </ul>
+                    <ul id="filter_ver" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="ver" checked="checked" value="" name="ver_all" id="ver_all" class="check_all">
+                            <label for="ver_all">バージョン</label>
+                            <div class="bt_arrow" data-val="ver"></div>
+                        </li>
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="6" name="ver_6" id="ver_6" class="filter_ver">
+                                    <label for="ver_6">Ver.1.2</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="7" name="ver_7" id="ver_7" class="filter_ver">
+                                    <label for="ver_7">Ver.1.2EX</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="8" name="ver_8" id="ver_8" class="filter_ver">
+                                    <label for="ver_8">Ver.1.3</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="9" name="ver_9" id="ver_9" class="filter_ver">
+                                    <label for="ver_9">Ver.1.3EX1</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="10" name="ver_10" id="ver_10" class="filter_ver">
+                                    <label for="ver_10">Ver.1.3EX2</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="11" name="ver_11" id="ver_11" class="filter_ver">
+                                    <label for="ver_11">Ver.1.4</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="12" name="ver_12" id="ver_12" class="filter_ver">
+                                    <label for="ver_12">Ver.1.4EX1</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="13" name="ver_13" id="ver_13" class="filter_ver">
+                                    <label for="ver_13">Ver.1.4EX2</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="14" name="ver_14" id="ver_14" class="filter_ver">
+                                    <label for="ver_14">Ver.1.4EX3</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="15" name="ver_15" id="ver_15" class="filter_ver">
+                                    <label for="ver_15">Ver.2.0</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="16" name="ver_16" id="ver_16" class="filter_ver">
+                                    <label for="ver_16">Ver.2.0EX1</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="17" name="ver_17" id="ver_17" class="filter_ver">
+                                    <label for="ver_17">Ver.2.0EX2</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="18" name="ver_18" id="ver_18" class="filter_ver">
+                                    <label for="ver_18">Ver.2.0EX3</label>
+                                </li>
+                            
+                        
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="20" name="ver_20" id="ver_20" class="filter_ver">
+                                    <label for="ver_20">Ver.2.1</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="21" name="ver_21" id="ver_21" class="filter_ver">
+                                    <label for="ver_21">Ver.2.1EX</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="22" name="ver_22" id="ver_22" class="filter_ver">
+                                    <label for="ver_22">Ver.2.2</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="23" name="ver_23" id="ver_23" class="filter_ver">
+                                    <label for="ver_23">Ver.2.2EX</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="24" name="ver_24" id="ver_24" class="filter_ver">
+                                    <label for="ver_24">Ver.2.3</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="25" name="ver_25" id="ver_25" class="filter_ver">
+                                    <label for="ver_25">Ver.2.3EX1</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="ver" checked="checked" value="26" name="ver_26" id="ver_26" class="filter_ver">
+                                    <label for="ver_26">Ver.2.3EX2</label>
+                                </li>
+                            
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+                    <ul id="filter_classic" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="national" value="" name="national_all" id="national_all" class="check_all">
+                            <label for="national_all">全国対戦不可</label>
+                            <div class="bt_arrow" data-val="classic"></div>
+                        </li>
+                        <li class="info font_r">※以下のバージョンは全国対戦で使用することができません。</li>
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="national" value="1" name="filter_national" id="national_1" class="filter_national">
+                                    <label for="national_1">Ver.1.0</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="national" value="2" name="filter_national" id="national_2" class="filter_national">
+                                    <label for="national_2">Ver.1.0EX</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="national" value="3" name="filter_national" id="national_3" class="filter_national">
+                                    <label for="national_3">Ver.1.1</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="national" value="4" name="filter_national" id="national_4" class="filter_national">
+                                    <label for="national_4">Ver.1.1EX1</label>
+                                </li>
+                            
+                        
+                            
+                                <li class="item">
+                                    <input type="checkbox" data-type="national" value="5" name="filter_national" id="national_5" class="filter_national">
+                                    <label for="national_5">Ver.1.1EX2</label>
+                                </li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+                    <ul id="filter_rarity" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="rarity" checked="checked" value="" name="rarity_all" id="rarity_all" class="check_all">
+                            <label for="rarity_all">レアリティ</label>
+                            <div class="bt_arrow" data-val="rarity"></div>
+                        </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="rarity" checked="checked" value="1" name="rarity_1" id="rarity_1" class="filter_rarity">
+                                <label for="rarity_1">C</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="rarity" checked="checked" value="2" name="rarity_2" id="rarity_2" class="filter_rarity">
+                                <label for="rarity_2">UC</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="rarity" checked="checked" value="3" name="rarity_3" id="rarity_3" class="filter_rarity">
+                                <label for="rarity_3">R</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="rarity" checked="checked" value="4" name="rarity_4" id="rarity_4" class="filter_rarity">
+                                <label for="rarity_4">VR</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="rarity" checked="checked" value="5" name="rarity_5" id="rarity_5" class="filter_rarity">
+                                <label for="rarity_5">SR</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="rarity" checked="checked" value="9" name="rarity_9" id="rarity_9" class="filter_rarity">
+                                <label for="rarity_9">PR</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="rarity" checked="checked" value="10" name="rarity_10" id="rarity_10" class="filter_rarity">
+                                <label for="rarity_10">SP</label>
+                            </li>
+                        
+                    </ul>
+                    <ul id="filter_cost" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="cost" checked="checked" value="" name="cost_all" id="cost_all" class="check_all">
+                            <label for="cost_all">コスト</label>
+                            <div class="bt_arrow" data-val="cost"></div>
+                        </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="0" name="cost_0" id="cost_0" class="filter_cost">
+                                <label for="cost_0">0</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="1" name="cost_1" id="cost_1" class="filter_cost">
+                                <label for="cost_1">1</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="2" name="cost_2" id="cost_2" class="filter_cost">
+                                <label for="cost_2">2</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="3" name="cost_3" id="cost_3" class="filter_cost">
+                                <label for="cost_3">3</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="4" name="cost_4" id="cost_4" class="filter_cost">
+                                <label for="cost_4">4</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="5" name="cost_5" id="cost_5" class="filter_cost">
+                                <label for="cost_5">5</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="6" name="cost_6" id="cost_6" class="filter_cost">
+                                <label for="cost_6">6</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="7" name="cost_7" id="cost_7" class="filter_cost">
+                                <label for="cost_7">7</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="cost" checked="checked" value="8" name="cost_8" id="cost_8" class="filter_cost">
+                                <label for="cost_8">8以上</label>
+                            </li>
+                        
+                    </ul>
+                    <ul id="filter_foil" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="foil" checked="checked" value="" name="foil_all" id="foil_all" class="check_all">
+                            <label for="foil_all">ノーマル/フォイル</label>
+                            <div class="bt_arrow" data-val="foil"></div>
+                        </li>
+                        <li class="item">
+                            <input type="checkbox" data-type="normal" checked="checked" value="" name="foil_1" id="foil_1" class="filter_foil">
+                            <label for="foil_1">ノーマル</label>
+                        </li>
+                        <li class="item">
+                            <input type="checkbox" data-type="foil" checked="checked" value="" name="foil_2" id="foil_2" class="filter_foil">
+                            <label for="foil_2">フォイル</label>
+                        </li>
+                    </ul>
+                    <ul id="filter_count" class="close">
+                        <li class="all">
+                            <input type="checkbox" data-type="count" checked="checked" value="" name="count_all" id="count_all" class="check_all">
+                            <label for="count_all">所持枚数</label>
+                            <div class="bt_arrow" data-val="count"></div>
+                        </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="count" checked="checked" value="0" name="count_0" id="count_0" class="filter_count">
+                                <label for="count_0">0</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="count" checked="checked" value="1" name="count_1" id="count_1" class="filter_count">
+                                <label for="count_1">1</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="count" checked="checked" value="2" name="count_2" id="count_2" class="filter_count">
+                                <label for="count_2">2</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="count" checked="checked" value="3" name="count_3" id="count_3" class="filter_count">
+                                <label for="count_3">3</label>
+                            </li>
+                        
+                            <li class="item">
+                                <input type="checkbox" data-type="count" checked="checked" value="4" name="count_4" id="count_4" class="filter_count">
+                                <label for="count_4">4以上</label>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div id="submit_bt" class="bt_submit"></div>
+            <div id="close_filter_bt" class="bt_cancel"></div>
+        </div>
+        <div id="filter_frame_bottom"></div>
+    </div>
+
+  
+  <div id="pallete_wrapper" class="">
+    <div id="deck_pallete">
+      <div id="colision_pallete"></div>
+      <div id="analyze_bt" class="bt_analyze"></div>
+      <select id="deck_selector" name="deck_selector">
+        
+      </select>
+      <div id="deck_copy_bt" class="bt_copy"></div>
+      <div id="deck_paste_bt" class="bt_paste disable"></div>
+      <div id="deck_verify_regulation_bt" class="bt_verify_regulation"></div>
+      <div id="deck_filter_regulation_bt" class="bt_filter_regulation_off disable" class=""></div>
+      <div id="sub_param_toggle_bt" class="bt_sub_param_cp"></div>
+      <div id="deck_bt_recipe" class="bt_recipe"></div>
+      <div id="deck_save_bt" class="bt_save save_enable"></div>
+      <div id="deck_clear_bt" class="bt_clear"></div>
+      <div id="deck_sort_bt" class="bt_sort"></div>
+    </div>
+  </div>
+
+  
+  <div id="regulation_wrapper" class="display_none">
+    <div id="regulation_container">
+      <div id="regulation_container_top"></div>
+      <div id="regulation_container_center">
+        <div id="regulation_text_top"></div>
+      </div>
+      <div id="regulation_container_bottom">
+        <div id="regulation_close_bt" class="bt_close"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="analyze_wrapper" class="display_none">
+    <div id="analyze_container">
+
+      <div id="analyze_deck_img" class="">
+        <div class="analyze_header">デッキカード一覧</div>
+        <canvas id="cv_analyze_deck" width="1240" height="900" style="width:620px; height:450px;" class="display_none"></canvas>
+        <img id="img_analyze_deck">
+      </div>
+
+
+      <div id="analyze_graph"  class="medium_bar display_none">
+        <div class="analyze_header">CP分布</div>
+        <div id="graph_caption">平均CP : 1.8</div>
+
+        <div id="bar_area">
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph1" class="cells">
+                <div class="bar_none graph_cell"></div>
+                <div class="bar_blue graph_cell"></div>
+                <div class="bar_purple graph_cell"></div>
+                <div class="bar_red graph_cell"></div>
+                <div class="bar_green graph_cell"></div>
+                <div class="bar_yellow graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP0</div>
+          </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph2" class="cells">
+                <div class="bar_red graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP1</div>
+          </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph3" class="cells">
+                <div class="bar_red graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP2</div>
+          </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph4" class="cells">
+                <div class="bar_green graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP3</div>
+          </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph5" class="cells">
+                <div class="bar_green graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP4</div>
+          </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph6" class="cells">
+                <div class="bar_none graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP5</div>
+          </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph7" class="cells">
+                <div class="bar_none graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP6</div>
+          </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph8" class="cells">
+                <div class="bar_none graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP7</div>
+          </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph9" class="cells">
+                <div class="bar_none graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP8</div>
+            </div>
+          <div class="bar_data" style="width: 10%">
+            <div class="bar">
+              <div id="all_cp_graph10" class="cells">
+                <div class="bar_none graph_cell"></div>
+              </div>
+            </div>
+            <div class="x_axis" style="width: 63px;">CP9</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="analyze_alt" class="display_none">
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+
+      <div id="analyze_next_bt" class="bt_analyze_next"></div>
+      <div id="analyze_prev_bt" class="bt_analyze_prev"></div>
+      <div id="analyze_close_bt" class="bt_close"></div>
+    </div>
+  </div>
+  
+  <div id="dob_threshold_wrapper" class="display_none">
+  <div id="dob_threshold_container" class="dob_threshold_container">
+    <div id="dob_threshold_popup_area">
+      <h1>デッキオリジナリティランク</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ランク</th>
+            <th>ポイント</th>
+            <th><p>ポイント</p><p>倍率</p></th>
+          </tr>
+        </thead>
+        <tbody id="dob_threshold_tbody">
+        </tbody>
+      </table>
+    </div>
+    <div id="dob_threshold_close" class="bt_close"></div>
+  </div>
+  </div>
+    
+  <div id="deck_recipe_wrapper" class="display_none">
+  <div id="deck_recipe_container" class="popup_plate">
+
+      <div id="deck_recipe_list" class="display_block">
+      <div class="deck_recipe_header">
+        <div id="title_present_recipe" class="display_block">プレゼントレシピ</div>
+        <div id="title_card_recipe" class="display_none">カードセットレシピ</div>
+        <div id="bt_deck_recipe_prev" class="bt_analyze_prev"></div>
+        <div id="bt_deck_recipe_next" class="bt_analyze_next"></div>
+      </div>
+
+        <div id="recipe_list_p2" class="clearfix display_block">
+          <ul>
+          </ul>
+        </div>
+        <div id="recipe_list_p1" class="clearfix display_none">
+          <ul>
+          </ul>
+        </div>
+        <div id="bt_deck_recipe_close" class="bt_close"></div>
+      </div>
+
+      <div id="deck_recipe_preview" class="display_none">
+        <div class="deck_recipe_header">
+        <div id="deck_recipe_name"></div>
+        </div>
+          <div class="deck_recipe_img">
+            <canvas id="cv_recipe_deck" width="1120" height="1210" style="width:620px; height:450px;" class="display_none"></canvas>
+            <img id="img_recipe_deck" src="">
+          </div>
+
+          <div class="recipe_description_area">
+            <label for="bt_recipe_discription">▼レシピ説明</label>
+            <input type="checkbox" id="bt_recipe_discription" class="on-off" />
+            <ul>
+              <li id='deck_recipe_additional_condition'></li>
+
+              <li id='deck_recipe_explanation'></li>
+            </ul>
+          </div>
+          <div>このデッキレシピを適用しますか？</div>
+
+        <div class="deck_recipe_footer clearfix">
+          <div id="bt_deck_recipe_registration" class="bt_registration"></div>
+          <div id="bt_deck_recipe_deck_editor" class="bt_deck_editor_l"></div>
+          <div id="bt_deck_recipe_cancel" class="bt_cancel"></div>
+        </div>
+      </div>
+  </div>
+  </div>
+
+      <div id="common_popup_wrapper" class="display_none">
+        <div class="popup_plate">
+            <div id="popup_container">
+                <div class="tx_c"></div>
+            </div>
+            
+            <div class="bt_button_area"> 
+                <div id="common_popup_back" class="bt_back display_none"></div> 
+                <div id="common_popup_close" class="bt_close"></div> 
+                <div id="common_popup_accept" class="bt_accept display_none"></div> 
+                <div id="common_popup_decline" class="bt_decline display_none"></div> 
+                <div id="common_popup_cancel" class="bt_cancel display_none"></div> 
+                <div id="common_popup_next" class="bt_next display_none"></div> 
+            </div>
+        </div>    
+    </div>
+
+
+    
+  <div id="deck_recipe_wrapper" class="display_none">
+  <div id="deck_recipe_container" class="popup_plate">
+
+      <div id="deck_recipe_list" class="display_block">
+      <div class="deck_recipe_header">
+        <div id="title_present_recipe" class="display_block">プレゼントレシピ</div>
+        <div id="title_card_recipe" class="display_none">カードセットレシピ</div>
+        <div id="bt_deck_recipe_prev" class="bt_analyze_prev"></div>
+        <div id="bt_deck_recipe_next" class="bt_analyze_next"></div>
+      </div>
+
+        <div id="recipe_list_p2" class="clearfix display_block">
+          <ul>
+          </ul>
+        </div>
+        <div id="recipe_list_p1" class="clearfix display_none">
+          <ul>
+          </ul>
+        </div>
+        <div id="bt_deck_recipe_close" class="bt_close"></div>
+      </div>
+
+      <div id="deck_recipe_preview" class="display_none">
+        <div class="deck_recipe_header">
+        <div id="deck_recipe_name"></div>
+        </div>
+          <div class="deck_recipe_img">
+            <canvas id="cv_recipe_deck" width="1120" height="1210" style="width:620px; height:450px;" class="display_none"></canvas>
+            <img id="img_recipe_deck" src="">
+          </div>
+
+          <div class="recipe_description_area">
+            <label for="bt_recipe_discription">▼レシピ説明</label>
+            <input type="checkbox" id="bt_recipe_discription" class="on-off" />
+            <ul>
+              <li id='deck_recipe_additional_condition'></li>
+
+              <li id='deck_recipe_explanation'></li>
+            </ul>
+          </div>
+          <div>このデッキレシピを適用しますか？</div>
+
+        <div class="deck_recipe_footer clearfix">
+          <div id="bt_deck_recipe_registration" class="bt_registration"></div>
+          <div id="bt_deck_recipe_deck_editor" class="bt_deck_editor_l"></div>
+          <div id="bt_deck_recipe_cancel" class="bt_cancel"></div>
+        </div>
+      </div>
+  </div>
+  </div>
+
+      <div id="loading_wrapper" class="display_none">
+        <div id="page_loading" class="loading_anim"></div>
+    </div>
+
+
+      <div id="p_bottom_wrapper" class="clearfix">
+        <div id="p_page_top"></div>
+        <div id="p_copyright">
+            <span>©SEGA</span>
+        </div>
+        <div id="p_bottom_left"></div>
+        <div id="p_bottom_center"></div>
+        <div id="p_bottom_right"></div>
+    </div>
+
+</div>
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+
+</body>
+</html>

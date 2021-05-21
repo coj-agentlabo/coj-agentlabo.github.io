@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+  <link rel="stylesheet" href="css/ranking.css" type="text/css">
+  <link rel="stylesheet" href="css/menu.css" type="text/css">
+
+<link rel="stylesheet" href="css/web_cards.min.css" type="text/css">
+<script>
+  var uk = "dc7dcfc49147c798d18059f6b45ffc97";
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/ranking.js"></script>
+</head>
+<body class="ranking">
+
+<div id="main_wrapper" class="card_ranking">
+
+  
+  <div id="head_wrapper">
+    <div id="m_page_title"><div id="ic_current_play_sp"></div></div>
+    <div id="p_header_left"></div>
+    <div id="p_header_center"></div>
+    <div id="p_header_right"></div>
+  </div>
+
+      <div id="menu_wrapper">
+        <div id="menu_main" class="sprite-menu_main"></div>
+        <div id="menu_base" class="">
+            <div id="menu_list" class="">
+                <ul id="menu_list_col1">
+                    <li id="menu_info" class="sprite-menu_info"><a href="information"></a></li>
+                    <li id="menu_deck_editor" class="sprite-menu_deck_editor"><a href="deck_editor"></a></li>
+                    <li id="menu_deck_list" class="sprite-menu_deck_list"><a href="deck_list"></a></li>
+                    <li id="menu_card_list" class="sprite-menu_card_list"><a href="card_list"></a></li>
+                </ul>
+                <ul id="menu_list_col2">
+                    <li id="menu_player_file" class="sprite-menu_player_file"><a href="player_file"></a></li>
+                    <li id="menu_bulletin_board" class="sprite-menu_bulletin_board"><a href="bulletin_board"></a></li>
+                    <li id="menu_my_unit" class="sprite-menu_my_unit"><a href="my_unit"></a></li>
+                    <li id="menu_friend" class="sprite-menu_friend"><a href="friend"></a></li>
+                </ul>
+                <ul id="menu_list_col3">
+                    <li id="menu_ranking" class="sprite-menu_ranking"><a href="ranking"></a></li>
+                    <li id="menu_code" class="sprite-menu_code"><a href="code"></a></li>
+                    <li id="menu_help" class="sprite-menu_help"><a href="help?ref=ranking"></a></li>
+                    <li id="menu_setting" class="sprite-menu_setting"><a href="setting"></a></li>
+                    <li id="menu_logout" class="sprite-menu_logout"><a href="login"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <div id="m_sub_menu">
+    <ul>
+      <li id="sub_menu_page_top"></li>
+    </ul>
+  </div>
+
+  
+  <div id="content_wrapper">
+
+    <div id="title_area">
+    <div id="ic_current_play"></div>
+      <h1 id="p_page_title"></h1>
+      <div id="top_bt" class="bt_top"></div>
+
+      <div class="card_ranking_box">
+        <div id="ranking_select_card">
+          <select id="card_ranking_select">
+            
+          </select>
+        </div>
+        <div id="card_count_period"></div>
+      </div>
+
+      <div class="agent_ranking_box">
+        <div id="national_bt" class="bt_national enable"></div>
+        <div id="region_bt" class="bt_region disable"></div>
+        <div id="location_bt" class="bt_place disable"></div>
+      </div>
+
+      <div class="joker_ranking_box">
+        <div id="joker_count_period"></div>
+      </div>
+
+      <div class="event_ranking_box">
+        <div id="ranking_select_event">
+          <select id="event_ranking_select">
+            
+              <option value="8db972ef68fe1065c3e24c0ed341bd5d" data-url="">キングオブキングス</option>
+            
+              <option value="fcb4a13a446fb7e58c117c4220a52fe2" data-url="">イービルアイズ</option>
+            
+              <option value="119fe9888a989838e9fdd23200cb92ad" data-url="">海精の悪戯</option>
+            
+              <option value="4d31238164f712b8e31b6781b5aed32f" data-url="">革命の熾天使</option>
+            
+          </select>
+        </div>
+      </div>
+
+      <div class="month_ranking_box">
+        <div id="month_national_bt" class="bt_national enable"></div>
+        <div id="month_region_bt" class="bt_region disable"></div>
+        <div id="month_location_bt" class="bt_place disable"></div>
+      </div>
+
+      <div class="last_month_ranking_box">
+        <div id="last_month_national_bt" class="bt_national enable"></div>
+        <div id="last_month_region_bt" class="bt_region disable"></div>
+        <div id="last_month_location_bt" class="bt_place disable"></div>
+      </div>
+
+      <div id="paging_prev_bt" class="bt_paging_prev"></div>
+      <div id="paging_next_bt" class="bt_paging_next"></div>
+
+    </div>
+
+    <div id="contant_area">
+      <div id="contant_frame_top"></div>
+
+      <div id="contant_frame">
+
+        <div id="actis_info" class="display_none">
+          <div id="actis_info_panel">
+            <p><span>ランキングが存在しません。</span></p>
+          </div>
+        </div>
+
+        <div id="card_ranking_area" class="card_ranking_box">
+          
+        </div>
+
+        <div id="agent_ranking_area" class="agent_ranking_box">
+          
+        </div>
+
+        <div id="joker_ranking_area" class="joker_ranking_box">
+          
+        </div>
+
+        <div id="month_ranking_area" class="month_ranking_box">
+          
+        </div>
+
+        <div id="event_ranking_area" class="event_ranking_box">
+          
+        </div>
+
+        <div id="new_month_ranking_area" class="last_month_ranking_box">
+          
+        </div>
+
+      </div>
+
+    </div>
+
+
+    
+    <div id="m_copyright">
+      <p>©SEGA</p>
+    </div>
+
+  </div>
+
+  
+  <div id="card_detail_wrapper" class="open">
+
+    <div id="p_card_detail_frame_top">
+      <div id="p_card_detail_frame_top_left"></div>
+      <div id="p_card_detail_frame_top_center"></div>
+      <div id="p_card_detail_frame_top_right"></div>
+      <div id="deck_arrow_bt"class="bt_deck_arrow"></div>
+    </div>
+    <div id="detail_container">
+      <div id="card_detail_container" class="">
+         <ul>
+           <li id="card_detail_no"></li>
+           <li id="card_detail_name"></li>
+           <li id="card_detail_rarity" class=""></li>
+           <li id="card_detail_CP"></li>
+           <li id="card_detail_type" class=""></li>
+           <li id="card_detail_color" class=""></li>
+           <li id="card_detail_species"></li>
+           <li id="card_detail_ver"></li>
+           <li id="card_detail_BP1"></li>
+           <li id="card_detail_BP2"></li>
+           <li id="card_detail_BP3"></li>
+           <li id="card_detail_op"></li>
+         </ul>
+         <div id="detail_SP_tab" class="on"></div>
+         <div id="detail_flavor_tab" class="off"></div>
+         <div id="regulation_tab" class="off"></div>
+         <div id="voice_tab" class="off"></div>
+         <div id="card_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="card_detail_flavor">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="regulation_info">
+           
+         </div>
+         <div id="voice_info">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="detail_order_board_bt" class="bt_order_board"></div>
+         <div id="detail_favo_bt" class="bt_favo_on"></div>
+         <div id="detail_virus_bt" class="bt_virus"></div>
+         <div id="card_detail_image_container">
+           <div id="card_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="card_detail_foil"></div>
+           <div id="card_detail_loading" class="loading_anim"></div>
+           <div id="card_detail_zoom"></div>
+         </div>
+       </div>
+
+       <div id="joker_detail_container" class="display_none">
+         <ul>
+           <li id="joker_detail_name"></li>
+           <li id="joker_detail_agent"></li>
+           <li id="joker_detail_joker_name"></li>
+           <li id="joker_detail_op"></li>
+           <li id="joker_detail_speed"></li>
+           <li id="joker_detail_lv"></li>
+           <li id="joker_detail_CP"></li>
+           <li id="joker_item_exp"><span id="exp_bar" style="width: 20%"></span></li>
+         </ul>
+         <div id="joker_SP_tab"></div>
+         <div id="joker_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="joker_detail_image_container">
+           <div id="joker_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="joker_detail_no" class=""></div>
+           <div id="joker_detail_loading" class="loading_anim"></div>
+         </div>
+       </div>
+
+      <div id="joker_detail_container_rank" class="display_none">
+         <ul>
+           <li id="joker_detail_name"></li>
+           <li id="joker_detail_agent"></li>
+           <li id="joker_detail_joker_name"></li>
+           <li id="joker_detail_op"></li>
+           <li id="joker_detail_speed"></li>
+           <li id="joker_detail_CP"></li>
+         </ul>
+         <div id="joker_SP_tab"></div>
+         <div id="joker_detail_SP">
+           <span class="detail_scroll"></span>
+         </div>
+         <div id="joker_detail_image_container">
+           <div id="joker_detail_image" style="background: no-repeat; background-size: 100%;"></div>
+           <div id="joker_detail_no" class=""></div>
+           <div id="joker_detail_loading" class="loading_anim"></div>
+         </div>
+       </div>
+
+       <div id="card_detail_close_bt" class="bt_close"></div>
+
+     </div>
+
+  </div>
+
+  
+  <div id="card_enlarge_wrapper" class="display_none">
+    <div id="card_enlarge_container">
+      <div id="card_enlarge_image_box">
+        <div id="card_enlarge1">
+          <div id="card_enlarge_image1" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil1" class="foil_large display_none"></div>
+          <div id="card_enlarge_illustrator1" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge2">
+          <div id="card_enlarge_image2" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil2" class="foil_large"></div>
+          <div id="card_enlarge_illustrator2" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge3">
+          <div id="card_enlarge_image3" class="card_enlarge_image" style="background: url() no-repeat 50%; background-size: 100%;"></div>
+          <div id="card_enlarge_foil3" class="foil_large"></div>
+          <div id="card_enlarge_illustrator3" class="card_illustrator_name display_none">-----</div>
+        </div>
+        <div id="card_enlarge_loading" class="loading_anim"></div>
+      </div>
+      <div id="enlarge_prev_bt" class="bt_enlarge_prev"></div>
+      <div id="enlarge_next_bt" class="bt_enlarge_next"></div>
+      <div id="enlarge_close_bt" class="bt_close"></div>
+    </div>
+  </div>
+
+  
+
+<div id="order_board_popup_wrapper" class="display_none">
+    <div id="order_board_popup_area">
+        <div id="order_board_popup_top">
+        <h1>カード募集掲示板設定</h1>
+        <div class="card_name_preview">選択中のカード【<span id="card_name_preview">魅惑のロシアンルーレット●●</span>】</div>
+        <p>欲しいカードまたは出せるカードに設定してください。</p>
+        <h2 class="order_popup_h2_01">欲しいカードに設定</h2>
+        <div class="order_popup_bt_area clearfix">
+            <div id="bt_order_board_popup_want_normal" class="normal_card_set_bt"></div>
+            <div id="bt_order_board_popup_want_foil" class="foil_card_set_bt"></div>
+          </div>
+        <h2 class="order_popup_h2_02">出せるカードに設定</h2>
+        <div class="order_popup_bt_area clearfix">
+            <div id="bt_order_board_popup_release_normal" class="setting_bt"></div>
+            <div id="bt_order_board_popup_release_foil" class="foil_card_set_bt"></div>
+          </div>
+        <p>※所持していないカードを「出せるカード」に設定することはできません。</p>
+      </div>
+        <div id="bt_order_board_popup_cancel_area" class="bt_cancel_area">
+        <div id="order_board_popup_cancel" class="bt_cancel cancel_center"></div>
+      </div>
+      </div>
+    </div>
+
+
+      <div id="common_popup_wrapper" class="display_none">
+        <div class="popup_plate">
+            <div id="popup_container">
+                <div class="tx_c"></div>
+            </div>
+            
+            <div class="bt_button_area"> 
+                <div id="common_popup_back" class="bt_back display_none"></div> 
+                <div id="common_popup_close" class="bt_close"></div> 
+                <div id="common_popup_accept" class="bt_accept display_none"></div> 
+                <div id="common_popup_decline" class="bt_decline display_none"></div> 
+                <div id="common_popup_cancel" class="bt_cancel display_none"></div> 
+                <div id="common_popup_next" class="bt_next display_none"></div> 
+            </div>
+        </div>    
+    </div>
+
+
+      <div id="loading_wrapper" class="display_none">
+        <div id="page_loading" class="loading_anim"></div>
+    </div>
+
+
+      <div id="p_bottom_wrapper" class="clearfix">
+        <div id="p_page_top"></div>
+        <div id="p_copyright">
+            <span>©SEGA</span>
+        </div>
+        <div id="p_bottom_left"></div>
+        <div id="p_bottom_center"></div>
+        <div id="p_bottom_right"></div>
+    </div>
+
+</div>
+
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--
+CODE OF JOKER
+
+Copyright (C) 2016 SEGA Interactive Corporation All Rights Reserved.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<title>COJ-AgentLabo</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="css/reset.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+  <link rel="stylesheet" href="css/friend.css" type="text/css">
+  <link rel="stylesheet" href="css/menu.css" type="text/css">
+
+
+<script>
+  var uk = "dc7dcfc49147c798d18059f6b45ffc97";
+  var deviceInfo = {"isMobile":false,"isTab":false,"isPC":true,"isIOS":false,"isAndroid":false,"isIE9":false,"isUnsupportedIE":false,"isUnsupportedIOS":false,"isUnsupportedAndroid":false};
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/friend.js"></script>
+</head>
+<body class="">
+
+<div id="main_wrapper" class="friend">
+
+
+  <div id="head_wrapper">
+    <div id="m_page_title"></div>
+    <div id="p_header_left"></div>
+    <div id="p_header_center"></div>
+    <div id="p_header_right"></div>
+  </div>
+
+      <div id="menu_wrapper">
+        <div id="menu_main" class="sprite-menu_main"></div>
+        <div id="menu_base" class="">
+            <div id="menu_list" class="">
+                <ul id="menu_list_col1">
+                    <li id="menu_info" class="sprite-menu_info"><a href="information"></a></li>
+                    <li id="menu_deck_editor" class="sprite-menu_deck_editor"><a href="deck_editor"></a></li>
+                    <li id="menu_deck_list" class="sprite-menu_deck_list"><a href="deck_list"></a></li>
+                    <li id="menu_card_list" class="sprite-menu_card_list"><a href="card_list"></a></li>
+                </ul>
+                <ul id="menu_list_col2">
+                    <li id="menu_player_file" class="sprite-menu_player_file"><a href="player_file"></a></li>
+                    <li id="menu_bulletin_board" class="sprite-menu_bulletin_board"><a href="bulletin_board"></a></li>
+                    <li id="menu_my_unit" class="sprite-menu_my_unit"><a href="my_unit"></a></li>
+                    <li id="menu_friend" class="sprite-menu_friend"><a href="friend"></a></li>
+                </ul>
+                <ul id="menu_list_col3">
+                    <li id="menu_ranking" class="sprite-menu_ranking"><a href="ranking"></a></li>
+                    <li id="menu_code" class="sprite-menu_code"><a href="code"></a></li>
+                    <li id="menu_help" class="sprite-menu_help"><a href="help?ref=friends"></a></li>
+                    <li id="menu_setting" class="sprite-menu_setting"><a href="setting"></a></li>
+                    <li id="menu_logout" class="sprite-menu_logout"><a href="login"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <div id="m_sub_menu">
+    <ul>
+      <li id="sub_menu_search_player"><a href="friend_search"></a></li>
+    </ul>
+  </div>
+
+  
+  <div id="content_wrapper">
+
+    <h1 id="p_page_title"></h1>
+
+    <div id="profile_area">
+      <ul id="page_nation" class="clearfix">
+        
+      </ul>
+      <ul id="friend_list" class="clearfix">
+        
+      </ul>
+      <div id="p_friend_search_bt" class="bt_search_player"><a href="friend_search"></a></div>
+    </div>
+
+    <div id="log_area">
+      
+      <div id="comeback_campaign" class="log_section orange open">
+        <h2>カムバックキャンペーン<span data-box="comeback" class="bt_arrow"></span></h2>
+        <div class="log_box">
+          <div>あなたのツイートでカムバックしたユーザー数に応じて豪華なアイテムをプレゼント！<br>
+            【キャンペーンの詳細は<a href="http://coj.sega.jp/player/game/08_camebackcampaign.html" target="_brank">こちら</a>】
+          </div>
+          <ul class="log_list">
+            <li>カムバックキャンペーンツイートはこちら<br>
+              <div class="bt_tweet">
+                <a href="http://twitter.com/share?text=久しぶりにCOJをプレイするユーザーが豪華な報酬を貰えるカムバックキャンペーンを開催中！Laboでシリアルコード『ToGrOXAhYp』を入力して、お得なアイテムをゲット！%0ahttps://coj-agentlabo.com/%0a&hashtags=coj&url=https://twitter.com/coj_sega/status/943651185491304448" onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow"></a>
+              </div>
+            </li>
+            <li>カムバックシリアルコード入力はこちら<br>
+              <div id="bt_comeback_code" class="bt_comeback_code disable">
+                <div></div>
+              </div>
+            </li>
+          </ul>
+          <div id="comeback_gauge_bt" class="bt_comeback_gauge"></div>
+        </div>
+      </div>
+      
+
+      <div id="friend_request" class="log_section orange close">
+        <h2>フレンド通知<span id="notice_sum">(<spna id="notice_sum_value">0</spna>件)</span><span data-box="request" class="bt_arrow"></span></h2>
+        <div class="log_box">
+          <ul id="friend_message_list" class="log_list">
+            
+          </ul>
+        </div>
+      </div>
+      <div id="friend_ranking" class="log_section orange close">
+        <h2>週間フレンドランキング<span data-box="ranking" class="bt_arrow"></span></h2>
+        <div class="log_box">
+          <div id="friend_ranking_text">一週間以内にプレイしたフレンドがいません</div>
+          <div id="play_count_rank">
+            <div id="friend_ranking_content">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="friend_bonus" class="log_section orange open">
+        <h2>フレンドボーナス<span data-box="bonus" class="bt_arrow"></span></h2>
+        <div class="log_box">
+          <ul class="log_list">
+            <li>【達成期間】<br>
+            <span id="friend_point_bonus_term"></span></li>
+            <li>【現在の獲得FP】<br>
+            あなた：<span id="user_fp"></span>FP<br>
+            フレンド：<span id="friend_fp"></span>FP<br>
+            合計：<span id="total_fp"></span>FP</li>
+          </ul>
+          <div id="friend_gauge_bt" class="bt_friend_gauge"></div>
+        </div>
+      </div>
+      <div id="friend_log" class="log_section orange open">
+        <h2>フレンドのプレイ履歴<span data-box="log" class="bt_arrow"></span></h2>
+        <div class="log_box">
+          <dl id="log_time_list" class="log_time_list">
+            
+          </dl>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div id="m_copyright">
+      <p>©SEGA</p>
+    </div>
+
+  </div>
+
+  
+  <div id="event_popup_wrapper" class="display_none">
+    <div class="popup_plate">
+      
+      <div id="popup_friend_gauge">
+        <h1></h1>
+        <div id="friend_gauge_area" class="popup_contents">
+          <div id="friend_gauge_info">
+          <ul id="friend_gauge_reward_list">
+          </ul>
+          </div>
+          <div class="friend_gauge">
+            <div id="friend_gauge_container">
+              <div id="friend_gauge_bar" style="width: 50%;"></div>
+            </div>
+            <div id="friend_gauge_frame"></div>
+            <div id="friend_gauge_line">
+            </div>
+          </div>
+        </div>
+        <div class="tx_c">
+          <span id="friend_gauge_period"></span>
+          現在の獲得FP：<span id="dialog_total_fp"></span><br>
+          <span id="dialog_next_fp"></span>
+        </div>
+        <div id="friend_bt_receive" class="bt_friend_receive"></div>
+        <div id="gauge_receive_info" class="display_none"></div>
+      </div>
+
+      
+      <div class="bt_button_area">
+        <div id="event_popup_close" class="bt_close"></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="comeback_popup_wrapper" class="display_none">
+    <div class="popup_plate">
+      
+      <div id="popup_comeback_gauge">
+        <h1></h1>
+        <div id="comeback_gauge_area" class="popup_contents">
+          <div id="comeback_gauge_info">
+          <ul id="comeback_gauge_reward_list">
+
+            <li id="comeback_gauge_reward3">リナのシャープリィチケット × 3</li>
+            <li id="comeback_gauge_reward2">ACブーストEX × 3、カードブーストEXチケット × 3</li>
+            <li id="comeback_gauge_reward1">見習い魔導士リーナ（水着）フォイル × 3</li>
+
+          </ul>
+          </div>
+          <div class="comeback_gauge">
+            <div id="comeback_gauge_container">
+              <div id="comeback_gauge_bar" style="width: 50%;"></div>
+            </div>
+            <div id="comeback_gauge_frame"></div>
+            <div id="comeback_gauge_line">
+            <div id="gauge_line3" style="left: 100%;"></div><div id="gauge_mark3" style="left: 100%;"><span id="reward_fp_3">5</span>人<span class="gauge_comp display_none"></span></div><div id="gauge_line2" style="left: 60%;"></div><div id="gauge_mark2" style="left: 60%;"><span id="reward_fp_2">3</span>人<span class="gauge_comp display_none"></span></div><div id="gauge_line1" style="left: 20%;"></div><div id="gauge_mark1" style="left: 20%;"><span id="reward_fp_1">1</span>人<span class="gauge_comp display_none"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="tx_c">
+          現在のカムバック人数：<span id="dialog_comeback_point"></span><br>
+          <span id="dialog_next_comeback_point"></span>
+        </div>
+        <div id="comeback_bt_receive" class="bt_friend_receive"></div>
+        <div id="comeback_gauge_receive_info" class="display_none"></div>
+      </div>
+
+      
+      <div class="bt_button_area">
+        <div id="event_popup_close" class="bt_close"></div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+
+      <div id="common_popup_wrapper" class="display_none">
+        <div class="popup_plate">
+            <div id="popup_container">
+                <div class="tx_c"></div>
+            </div>
+            
+            <div class="bt_button_area"> 
+                <div id="common_popup_back" class="bt_back display_none"></div> 
+                <div id="common_popup_close" class="bt_close"></div> 
+                <div id="common_popup_accept" class="bt_accept display_none"></div> 
+                <div id="common_popup_decline" class="bt_decline display_none"></div> 
+                <div id="common_popup_cancel" class="bt_cancel display_none"></div> 
+                <div id="common_popup_next" class="bt_next display_none"></div> 
+            </div>
+        </div>    
+    </div>
+
+
+      <div id="loading_wrapper" class="display_none">
+        <div id="page_loading" class="loading_anim"></div>
+    </div>
+
+
+      <div id="p_bottom_wrapper" class="clearfix">
+        <div id="p_page_top"></div>
+        <div id="p_copyright">
+            <span>©SEGA</span>
+        </div>
+        <div id="p_bottom_left"></div>
+        <div id="p_bottom_center"></div>
+        <div id="p_bottom_right"></div>
+    </div>
+
+</div>
+    
+
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5PWDSV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWDSV');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=fZaiRAu,3TO3iDJ";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=fZaiRAu,3TO3iDJ" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+
+
+
+</body>
+</html>
